@@ -1,0 +1,122 @@
+form {
+  border: 0.5px solid rgba(0, 0, 0, 0.116);
+  width: 450px;
+  margin-left: auto;
+
+  .addressForm {
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .header {
+      font-size: 12px;
+      font-weight: 500;
+      text-align: left;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .saveAddressAs {
+      .header {
+        margin-top: 30px;
+      }
+
+      button {
+        border: 0.5px solid black;
+        font-size: 10px;
+        border-radius: 20px;
+        padding: 3px 15px 3px 15px;
+      }
+
+      .homeAddress {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+      }
+
+      .workAddress {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 2;
+      margin-top: 10px;
+
+      div {
+        width: 100%;
+
+        input {
+          border: 0.5px solid rgba(0, 0, 0, 0.267);
+          padding: 10px;
+          font-size: 12px;
+          border-radius: 3px;
+          width: 100%;
+          outline: 0px;
+          background-color: white;
+
+          &:focus {
+            border: 0.5px solid rgb(0, 0, 0);
+
+            &::placeholder {
+              color: black !important;
+            }
+          }
+        }
+      }
+
+      .locality {
+        display: flex;
+        gap: 10px;
+
+        div {
+          width: 40%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .fotter {
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.103);
+    padding: 0px;
+    padding: 8px;
+
+    .addAddress {
+      width: 100%;
+      font-size: 12px;
+      border: 0px;
+      background-color: rgb(255, 63, 108);
+      color: white;
+      font-weight: 500;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.active {
+  font-weight: 500;
+  color: rgb(255, 63, 108);
+  border-color: rgb(255, 63, 108) !important;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+@media screen and (max-width:900px) {
+  form {
+    width: 100%;
+    border-top: none;
+  }
+}

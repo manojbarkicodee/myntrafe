@@ -1,0 +1,140 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid px-4">
+   
+    <span  (click)="drawer.toggle()" class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" [routerLink]="''">
+      <img src="../../../assets/myntra-Logo.png" alt="Bootstrap" />
+    </a>
+   
+    <div
+      class="collapse ml-5 navbar-collapse d-flex justify-content-between align-content-center"
+    >
+    
+      <ul class="navbar-nav sideNav mb-2 d-flex justify-content-between mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-bolder" [routerLink]="['/products', 'mens']"
+            >MEN</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bolder" [routerLink]="['/products', 'womens']"
+            >WOMEN</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bolder" [routerLink]="['/products', 'kids']"
+            >KIDS</a
+          >
+        </li>
+      </ul>
+   <div class="searchWrapper">
+    <div class="search">
+      <i class="bi bi-search pointer"></i>
+      <input
+        (keypress)="searchProductsOnEnter($event)"
+        [(ngModel)]="searchValue"
+        type="text"
+        placeholder="Search by brands"
+        #input
+      />
+    </div>
+    <div
+      *ngIf="searchValue && brandsOnSearch.length > 0;"
+      class="brandsOnSearch"
+    >
+      <p
+        class="searchBrand pointer"
+        *ngFor="let brand of brandsOnSearch"
+        #searchBrand
+        (mouseenter)="activeOnHover(searchBrand, $event)"
+        (mouseleave)="deactiveOnHover(searchBrand, $event)"
+        (click)="searchProductsOnBrand(brand.name)"
+      >
+        {{ brand.name }}
+      </p>
+    </div>
+ 
+      <div  *ngIf="noBrands"  (click)="searchProductsOnBrand('')"  class="brandsOnSearch  noBrands">
+        <p
+        class="searchBrand ">No brands found.</p>
+      </div>
+
+   </div>
+   
+
+      <div
+        class="navbar-profile-section"
+        [ngStyle]="{ width: showProfile ? '200px' : '150px' }"
+      >
+        <div
+          *ngIf="showProfile"
+          class="navbar-profile pointer"
+          (mouseover)="mousehover($event)"
+          (mouseleave)="mouseleave($event)"
+        >
+          <i class="bi bi-person"></i>
+          <p>Profile</p>
+          <app-profile-hover
+            [hover]="hover"
+            [url]="currentUrl"
+            [checkLogin]="checkLogin"
+            [userName]="userName"
+          ></app-profile-hover>
+        </div>
+        <div routerLink="/wishlist" class="pointer">
+          <i class="bi bi-heart"></i>
+
+          <p>Wishlist</p>
+        </div>
+        <div routerLink="/cart" class="pointer" id="cart-icon">
+          <mat-icon
+            [matBadge]="cartProductsCount"
+            matBadgeColor="accent"
+            matBadgePosition="above after"
+          >
+            <i class="bi bi-bag"></i
+          ></mat-icon>
+
+          <p>Bag</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-drawer-container (click)="drawer.close()" [ngStyle]="{'visibility':drawerOpened?'visible':'hidden'}"  class="example-container" autosize>
+    <mat-drawer (openedChange)="drawerChanged($event)" #drawer class="example-sidenav" mode="side">
+      <p class="tabheader">SHOP FOR</p>
+      <ul class="navbar-nav  mb-2 d-flex justify-content-between mb-lg-0">
+        <li (click)="drawer.close()" class="nav-item" [routerLink]="['/products', 'mens']">
+          <a class="nav-link fw-bolder" 
+            >MEN</a
+          ><mat-icon>navigate_next</mat-icon>
+        </li>
+        <li (click)="drawer.close()" [routerLink]="['/products', 'womens']" class="nav-item">
+          <a class="nav-link fw-bolder" 
+            >WOMEN</a
+          ><mat-icon>navigate_next</mat-icon>
+        </li>
+        <li  (click)="drawer.close()" [routerLink]="['/products', 'kids']" class="nav-item">
+          <a class="nav-link fw-bolder" 
+            >KIDS</a
+          ><mat-icon>navigate_next</mat-icon>
+        </li>
+        <li (click)="drawer.close()" [routerLink]="['/profile']" class="nav-item">
+          <a class="nav-link fw-bolder" 
+            >PROFILE</a
+          ><mat-icon>navigate_next</mat-icon>
+        </li>
+        <li (click)="drawer.close()" [routerLink]="['/wishlist']" class="nav-item">
+          <a class="nav-link fw-bolder" 
+            >WISHLIST</a
+          > <mat-icon>navigate_next</mat-icon>
+        </li>
+        <li (click)="drawer.close()" [routerLink]="['/cart']" class="nav-item">
+          <a class="nav-link fw-bolder" 
+            >CART</a
+          ><mat-icon>navigate_next</mat-icon>
+        </li>
+      </ul>
+    </mat-drawer>
+  </mat-drawer-container>
+</nav>

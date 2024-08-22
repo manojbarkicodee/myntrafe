@@ -1,0 +1,405 @@
+.empty-bagContainer {
+  width: 40%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  img {
+    width: 30%;
+    margin: auto;
+    object-fit: contain;
+  }
+  .header {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+  .description {
+    font-size: 12px;
+    color: rgb(126, 129, 140);
+    margin-bottom: 25px;
+  }
+  .navToWishlist {
+    border: 1px solid rgb(255, 63, 108);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgb(255, 63, 108);
+    padding: 15px 10px 15px 10px;
+    background-color: white;
+  }
+}
+.cartProductsContainer {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  gap: 15px;
+
+  .cart-products {
+    width: 60vw;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10px 20px 10px;
+
+      .selected-products {
+        mat-checkbox {
+          span {
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 500;
+        height: 15px;
+
+        .remove {
+          color: rgba(0, 0, 0, 0.568);
+          margin-right: 20px;
+        }
+
+        .wishlist {
+          color: rgba(0, 0, 0, 0.568);
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .products {
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .redirectToWishlist {
+      display: flex;
+      justify-content: space-between;
+      border-top: 0.5px solid rgba(0, 0, 0, 0.137);
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.137);
+      margin-top: 20px;
+      padding: 10px 0px 10px 0px;
+
+      div {
+        .bi {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        span {
+          font-size: 12px;
+          font-weight: 700;
+          margin-left: 10px;
+
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .bi-chevron-right {
+        font-size: 18px;
+        font-weight: 500;
+        color: black !important;
+      }
+    }
+  }
+
+  .pricingDetails {
+    width: 40vw;
+    border-left: 0.5px solid rgba(0, 0, 0, 0.137);
+    padding: 10px;
+
+    .coupons {
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.836);
+      }
+
+      .couponList {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .coupon {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 13px;
+          font-weight: 500;
+          color: black;
+          width: fit-content;
+          .bi-tag{
+            margin-right: 10px;
+
+          }
+          div {
+            p {
+              font-size: 12px;
+              margin: 0px;
+
+              .bi {
+                font-size: 12px;
+                color: green !important;
+              }
+            }
+
+            .header {
+              font-weight: 500;
+            }
+
+            .savedInfo {
+              color: green;
+              font-size: 10px;
+              font-weight: 300;
+            }
+          }
+
+          .bi {
+            font-size: 25px;
+            font-weight: 300;
+            color: black !important;
+          }
+        }
+
+        button {
+          border: 1px solid rgb(255, 63, 108);
+          font-size: 12px;
+          font-weight: 500;
+          color: rgb(255, 63, 108);
+          padding: 3px 10px 3px 10px;
+        }
+      }
+    }
+
+    .giftcards {
+      margin-top: 20px;
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.753);
+        margin: 0px;
+
+        margin-bottom: 10px;
+      }
+
+      .giftInfo {
+        display: flex;
+        background-color: rgb(255, 241, 236);
+        img {
+          width: 40px;
+          object-fit: contain;
+        }
+
+        .giftDetails {
+          padding: 15px 0px 10px 10px;
+          p {
+            font-size: 10px;
+            margin: 0px;
+            width: 80%;
+            line-height: 15px;
+          }
+          .header {
+            color: black;
+            font-size: 13px;
+          }
+
+          .fotter {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgb(255, 63, 108);
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .priceList {
+      margin-top: 30px;
+
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .priceInfo {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          font-size: 12px;
+        }
+
+        .price {
+          text-decoration: line-through;
+        }
+      }
+
+      .totalInfo {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 14px !important;
+        margin-top: 10px;
+      }
+
+      .btnPlaceOrder {
+        width: 100%;
+        font-size: 12px;
+        border: 0px;
+        background-color: rgb(255, 63, 108);
+        color: white;
+        font-weight: 500;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.greenColor {
+  color: green !important;
+}
+
+.redColor {
+  color: rgb(255, 63, 108);
+}
+
+:host ::ng-deep .mdc-checkbox__ripple {
+  display: none;
+}
+
+:host ::ng-deep .mat-mdc-checkbox-ripple {
+  display: none;
+}
+
+:host ::ng-deep mat-checkbox {
+  height: 25px;
+
+  .mdc-checkbox__background {
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid rgb(0, 0, 0);
+    left: 0px;
+  }
+}
+
+:host ::ng-deep .mdc-form-field {
+  label {
+    font-size: 13px;
+    width: 100%;
+  }
+}
+
+:host ::ng-deep .mat-mdc-checkbox {
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      top: 10px;
+      height: 20px;
+    }
+
+    .mat-mdc-checkbox-touch-target {
+      height: 20px;
+    }
+  }
+}
+
+:host ::ng-deep .mat-divider.mat-divider-vertical {
+  border-color: rgba(0, 0, 0, 0.384);
+  height: 20px;
+}
+@media screen and (max-width:1300px) {
+  .cartProductsContainer {
+  width: 90%;
+  }
+}
+
+@media screen and (max-width:900px){
+  .cartProductsContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  
+    .cart-products {
+      width: 100%;
+      .header{
+        padding: 20px 10px 20px 10px;
+        background-color: white;
+        margin-bottom: 10px;
+      }
+      .redirectToWishlist{
+        background-color: white;
+        padding: 10px;
+      }
+      
+    }
+    .pricingDetails {
+width: 100%;
+border-left: none;
+padding: 0px;
+margin-bottom: 10px;
+.giftcards{
+  .header{
+    padding-left: 10px;
+  }
+}
+.coupons{
+  .header{
+    padding-left: 10px;
+  }
+  .couponList{
+    background-color: white;
+    padding: 10px ;
+    margin-bottom: 10px;
+  }
+}
+.priceList{
+background-color: white;
+padding: 10px;
+margin-top: 0px;
+.btnWrapper{
+  padding: 10px;
+  background-color: white;
+  position: fixed;
+bottom: 0px;
+z-index: 120;
+left: 0px;
+
+right: 0px;
+width: 100%;
+}
+  
+}
+    }
+  }
+ 
+}
+@media screen and (max-width:500px) {
+  .bi-trash {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  .bi-suit-heart {
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  .empty-bagContainer {
+    width: 80%;
+    padding-top: 50px;
+  }
+
+}

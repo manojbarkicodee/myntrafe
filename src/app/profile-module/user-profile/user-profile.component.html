@@ -1,0 +1,238 @@
+<div class="userProfileContainer">
+  <div
+    *ngIf="profileDetails"
+    class="userProfileDetails"
+    [ngClass]="editMode ? 'userEditContainer' : ''"
+  >
+    <h2 class="header">{{ editMode ? "Edit Details" : "Profile Details" }}</h2>
+    <mat-divider></mat-divider>
+    <div *ngIf="!editMode" class="userDetails">
+      <div>
+        <label for="">Full Name</label>
+        <span>{{ profileDetails.fullName || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Mobile Number</label>
+        <span>{{ profileDetails.mobileNumber || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Email ID</label>
+        <span>{{ profileDetails.email || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Gender</label>
+        <span>{{ profileDetails.gender || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Date of Birth</label>
+        <span>{{ profileDetails.birthDate || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Location</label>
+        <span>{{ profileDetails.location || "- not added -" }}</span>
+      </div>
+      <div>
+        <label for="">Alternate Mobile</label>
+        <span>{{
+          profileDetails.alternateMobileNumber || "- not added -"
+        }}</span>
+      </div>
+      <button (click)="switchToEditMode()" class="editDetails">EDIT</button>
+    </div>
+
+    <div *ngIf="editMode" class="userEditDetails">
+      <form
+        action=""
+        [formGroup]="userDetailsForm"
+        (ngSubmit)="editUserDetails()"
+        class="editInfo"
+      >
+        <div>
+          <div class="phoneNumber">
+            <span class="MobilePlaceholder">+91</span>
+            <input
+              maxlength="10"
+              formControlName="mobileNumber"
+              name="mobileNumber"
+              type="text"
+              placeholder="Mobile Number"
+              #input
+            />
+          </div>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('mobileNumber')?.touched&&userDetailsForm.get('mobileNumber')?.errors?.['required'];else phoneMaxLength"
+          >
+            This is a mandatory field
+          </p>
+          <ng-template #phoneMaxLength>
+            <p
+              class="validatorMessage"
+              *ngIf="userDetailsForm.get('mobileNumber')?.touched&&userDetailsForm.get('mobileNumber')?.errors?.['minlength']?.actualLength<userDetailsForm.get('mobileNumber')?.errors?.['minlength']?.requiredLength; else phoneCheckNumber"
+            >
+              Minimum length is 10
+            </p>
+          </ng-template>
+          <ng-template #phoneCheckNumber>
+            <p
+              class="validatorMessage"
+              *ngIf="userDetailsForm.get('mobileNumber')?.touched&&userDetailsForm.get('mobileNumber')?.errors?.['number']"
+            >
+              Only numbers are allowed
+            </p>
+          </ng-template>
+        </div>
+
+        <div>
+          <input
+            formControlName="fullName"
+            name="fullName"
+            type="text"
+            placeholder="Full Name"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('fullName')?.touched&&userDetailsForm.get('fullName')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('fullName')?.touched&&userDetailsForm.get('fullName')?.errors?.['string']"
+          >
+            Only alphabets and . are allowed
+          </p>
+        </div>
+        <div>
+          <input
+            formControlName="email"
+            type="email"
+            name="email"
+            type="text"
+            placeholder="Email"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('email')?.touched&&userDetailsForm.get('email')?.errors?.['required']"
+          >
+            email is required!
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('email')?.touched&&userDetailsForm.get('email')?.errors?.['email']"
+          >
+            email is invalid!
+          </p>
+        </div>
+        <div>
+          <div class="genders">
+            <span
+              (click)="getGender('male', maleGender)"
+              class="gender maleGender pointer"
+              ><i #maleGender class="bi bi-check hideIcon"></i
+              ><span>Male</span></span
+            ><span
+              (click)="getGender('female', femaleGender)"
+              class="gender pointer"
+              ><i #femaleGender class="bi bi-check hideIcon"></i
+              ><span>Female</span></span
+            >
+          </div>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('gender')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+        </div>
+
+        <div>
+          <input
+            formControlName="birthDate"
+            name="birthDate"
+            type="text"
+            placeholder="Birthday(dd/mm/yyyy)"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('birthDate')?.touched&&userDetailsForm.get('birthDate')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('birthDate')?.touched&&userDetailsForm.get('birthDate')?.errors?.['date']"
+          >
+            invalid date format.
+          </p>
+        </div>
+        <div>
+          <input
+            formControlName="location"
+            name="location"
+            type="text"
+            placeholder="Location"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('location')?.touched&&userDetailsForm.get('location')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('location')?.touched&&userDetailsForm.get('location')?.errors?.['string']"
+          >
+            Only alphabets and . are allowed
+          </p>
+        </div>
+
+        <p class="alternateNumberHeader">Alternate mobile details</p>
+        <div>
+          <div class="phoneNumber">
+            <span class="MobilePlaceholder">+91</span>
+            <input
+              maxlength="10"
+              formControlName="alternateMobileNumber"
+              name="alternateMobileNumber"
+              type="text"
+              placeholder="Mobile Number"
+              #input
+            />
+          </div>
+          <p
+            class="validatorMessage"
+            *ngIf="userDetailsForm.get('alternateMobileNumber')?.touched&&userDetailsForm.get('alternateMobileNumber')?.errors?.['required'];else maxlength"
+          >
+            This is a mandatory field
+          </p>
+          <ng-template #maxlength>
+            <p
+              class="validatorMessage"
+              *ngIf="userDetailsForm.get('alternateMobileNumber')?.touched&&userDetailsForm.get('alternateMobileNumber')?.errors?.['minlength']?.actualLength<userDetailsForm.get('alternateMobileNumber')?.errors?.['minlength']?.requiredLength;else checkNumber"
+            >
+              Minimum length is 10
+            </p>
+          </ng-template>
+          <ng-template #checkNumber>
+            <p
+              class="validatorMessage"
+              *ngIf="userDetailsForm.get('alternateMobileNumber')?.touched&&userDetailsForm.get('alternateMobileNumber')?.errors?.['number']"
+            >
+              Only numbers are allowed
+            </p>
+          </ng-template>
+        </div>
+
+        <button
+          type="submit"
+          [ngClass]="!userDetailsForm.valid ? 'disabled' : ''"
+          [disabled]="!userDetailsForm.valid"
+          class="editDetails"
+        >
+          SAVE DETAILS
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

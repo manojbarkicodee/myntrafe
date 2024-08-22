@@ -1,0 +1,97 @@
+<div class="signupPage">
+  <div class="signup-container">
+    <div>
+      <img
+        class="signup-img"
+        src="../../../assets/signUp-banner-img.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="signup-details">
+      <form action="" (ngSubmit)="onSubmit()" [formGroup]="signupform">
+        <h4>Login <span>or</span> Signup</h4>
+        <input
+          formControlName="email"
+          type="email"
+          name="email"
+          placeholder="Enter Email*"
+        />
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('email')?.touched&&signupform.get('email')?.errors?.['required']"
+        >
+          email is required!
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('email')?.touched&&signupform.get('email')?.errors?.['email']"
+        >
+          email is invalid!
+        </p>
+        <input
+          formControlName="password"
+          name="password"
+          type="password"
+          placeholder="Enter Password*"
+        />
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.errors?.['required']"
+        >
+          password is required!
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.errors?.['minlength']"
+        >
+          password needs atleast 8 characters
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.value!==''&&signupform.get('password')?.errors?.['Upper']"
+        >
+          needs an uppercase character!
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.value!==''&&signupform.get('password')?.errors?.['lower']"
+        >
+          needs an lowercase character!
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.value!==''&&signupform.get('password')?.errors?.['special']"
+        >
+          needs an specialcase character!
+        </p>
+        <p
+          class="validatorMessage"
+          *ngIf="signupform.get('password')?.touched&&signupform.get('password')?.value!==''&&signupform.get('password')?.errors?.['Number']"
+        >
+          needs an number!
+        </p>
+        <p class="alltext">
+          By continuing,I agree to the
+          <span class="red pointer">Terms of use</span>
+          or
+          <span class="red pointer">Privacy Policy</span>
+        </p>
+        <button
+          [disabled]="signupform.status === 'INVALID'"
+          type="submit"
+          class="submitbtn fontsize-small"
+          [ngClass]="
+          signupform.status === 'VALID'?  'btn-color-ondisabled': ''
+          "
+        >
+          {{ isLogin ? "Login" : "Signup" }}
+        </button>
+        <p class="alltext">
+          {{isLogin?"Don't have an account":'Already have an account'}}
+          <span class="red pointer" (click)="onChangeMode(isLogin?'signup':'login')">click here</span>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

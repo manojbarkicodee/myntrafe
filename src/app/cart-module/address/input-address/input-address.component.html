@@ -1,0 +1,110 @@
+<form [formGroup]="addressForm" (ngSubmit)="submitAddressForm()">
+
+    <div class="addressForm">
+        <div class="contactGroup formGroup">
+            <p class="header">CONTACT DETAILS</p>
+            <div>
+                <input formControlName="name" name="name" type="text" placeholder="Name*">
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('name')?.touched&&addressForm.get('name')?.errors?.['required']">This is
+                    a mandatory field</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('name')?.touched&&addressForm.get('name')?.errors?.['string']">Only alphabets
+                    and . are allowed</p>
+            </div>
+            <div>
+                <input maxlength="10" formControlName="phoneNumber" name="phoneNumber" type="text"
+                    placeholder="Mobile No*">
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('phoneNumber')?.touched&&addressForm.get('phoneNumber')?.errors?.['required']">
+                    This is a mandatory field</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('phoneNumber')?.touched&&addressForm.get('phoneNumber')?.errors?.['minlength']?.actualLength<addressForm.get('phoneNumber')?.errors?.['minlength']?.requiredLength">
+                    Minimum length is 10</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('phoneNumber')?.touched&&addressForm.get('phoneNumber')?.errors?.['number']">
+                    Only numbers are allowed</p>
+            </div>
+        </div>
+        <div class="addressGroup formGroup">
+
+            <p class="header">ADDRESS</p>
+
+            <div>
+                <input formControlName="pincode" maxlength="6" name="pincode" type="text" placeholder="Pin Code*">
+
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('pincode')?.touched&&addressForm.get('pincode')?.errors?.['required']">
+                    This is a mandatory field</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('pincode')?.touched&&addressForm.get('pincode')?.errors?.['minlength']?.actualLength<addressForm.get('pincode')?.errors?.['minlength']?.requiredLength">
+                    Minimun length is 6</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('pincode')?.touched&&addressForm.get('pincode')?.errors?.['number']">
+                    Only numbers are allowed</p>
+            </div>
+            <div>
+                <input type="text" formControlName="address" name="address"
+                    placeholder="Address (House No,Building,Street,Area)*">
+
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('address')?.touched&&addressForm.get('address')?.errors?.['required']">
+                    This is a mandatory field</p>
+            </div>
+            <div>
+                <input type="text" formControlName="locality" name="locality" placeholder="Locality/Town*">
+
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('locality')?.touched&&addressForm.get('locality')?.errors?.['required']">
+                    This is a mandatory field</p>
+                <p class="validatorMessage"
+                    *ngIf="addressForm.get('locality')?.touched&&addressForm.get('locality')?.errors?.['string']">Only
+                    alphabets are allowed</p>
+            </div>
+            <div class="locality">
+                <div>
+                    <input type="text" formControlName="district" name="district" placeholder="City/District*">
+                    <p class="validatorMessage"
+                        *ngIf="addressForm.get('district')?.touched&&addressForm.get('district')?.errors?.['required']">
+                        This
+                        is a mandatory field</p>
+                    <p class="validatorMessage"
+                        *ngIf="addressForm.get('district')?.touched&&addressForm.get('district')?.errors?.['string']">
+                        Only alphabets are allowed</p>
+                </div>
+                <div>
+                    <input type="text" formControlName="state" name="state" placeholder="State*">
+                    <p class="validatorMessage"
+                        *ngIf="addressForm.get('state')?.touched&&addressForm.get('state')?.errors?.['required']">This
+                        is a
+                        mandatory field</p>
+                    <p class="validatorMessage"
+                        *ngIf="addressForm.get('state')?.touched&&addressForm.get('state')?.errors?.['string']">Only
+                        alphabets are allowed</p>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div class="saveAddressAs">
+            <p class="header">SAVE ADDRESS AS</p>
+            <button [ngClass]="home?'active':''" type="button" (click)="setBelongsTo('home')"
+                class="homeAddress">Home</button>
+            <button [ngClass]="work?'active':''" type="button" (click)="setBelongsTo('work')"
+                class="workAddress">Work</button>
+            <div class="default">
+                <mat-checkbox formControlName="default" name="default" value=""></mat-checkbox><span
+                    class="defaultLabel">Make this my default address</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="fotter">
+
+        <button [ngClass]="!addressForm.valid?'disabled':''" type="submit" [disabled]="!addressForm.valid"
+            class="addAddress">ADDRESS</button>
+    </div>
+</form>

@@ -1,0 +1,123 @@
+.card-Container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 10px;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .bi {
+      font-size: 20px;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  .fotter {
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.103);
+    padding: 0px;
+    padding: 8px;
+
+    .addCard {
+      width: 100%;
+      font-size: 12px;
+      border: 0px;
+      background-color: rgb(255, 63, 108);
+      color: white;
+      font-weight: 500;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border-radius: 5px;
+    }
+  }
+}
+
+:host ::ng-deep .cdk-mouse-focused {
+  background-color: aliceblue !important;
+  color: white !important;
+}
+
+:host ::ng-deep .mat-mdc-radio-button.mat-accent {
+  --mat-mdc-radio-checked-ripple-color: white;
+  --mat-mdc-radio-ripple-color: white;
+}
+
+:host ::ng-deep.mat-mdc-radio-button {
+  .mdc-radio {
+    padding: 7px;
+  }
+}
+.btn-outline-dark {
+  --bs-btn-hover-bg: white !important;
+  --bs-btn-hover-color: black;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+:host ::ng-deep .mat-mdc-radio-button {
+  .mat-radio-ripple {
+    display: none;
+  }
+
+  .mat-mdc-radio-ripple {
+    display: none;
+  }
+}
+
+:host ::ng-deep .mat-mdc-radio-touch-target {
+  height: 18px;
+  width: 18px;
+}
+
+:host ::ng-deep.mdc-radio__outer-circle {
+  border-width: 1px;
+}
+
+:host ::ng-deep .mdc-radio__background {
+  height: 16px;
+  width: 16px;
+}
+
+:host ::ng-deep .mdc-radio__inner-circle {
+  width: 80%;
+  height: 80%;
+  border-width: 8px;
+}
+
+:host ::ng-deep .mdc-form-field > label {
+  padding-left: 0px;
+
+  .name {
+    
+    font-size: 12px;
+  }
+}
+.reasonsToCancel {
+  height: 240px;
+  display: flex;
+  padding: 10px;
+  padding-top: 0px;
+  flex-direction: column;
+}
+.reasonHeader {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 0px;
+  padding-left: 17px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width:500px) {
+  .card-Container{
+    .header{
+      padding: 20px 9px 10px 15px;
+    }
+  }
+}

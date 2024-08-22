@@ -1,0 +1,12 @@
+<div class="dynamic-section-container pointer">
+  <img [src]="title" alt="" />
+  <div
+    [ngClass]="section ? 'image-container-category-section' : 'image-container'"
+  >
+    <img
+      *ngFor="let image of images; let i = index"
+      [src]="image.image_url"
+      alt="image-loading"
+    />
+  </div>
+</div>

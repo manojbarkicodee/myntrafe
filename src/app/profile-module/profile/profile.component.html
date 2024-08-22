@@ -1,0 +1,62 @@
+<div class="profileContainer">
+  <div class="header">
+    <p class="BoldPara">Account</p>
+    <p class="userName">{{userName}}</p>
+  </div>
+  <div class="profileRouteBody">
+    <div class="sideBar">
+      <div class="section">
+        <div class="subSections">
+          <p
+            routerLink="dashboard"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class=""
+          >
+            Overview
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <p class="header">ORDERS</p>
+        <div>
+          <p routerLink="orders" routerLinkActive="active" class="subSections">
+            Orders & Returns
+          </p>
+        </div>
+      </div>
+      <div class="section">
+        <p class="header">ACCOUNT</p>
+        <div class="subSections">
+          <p
+            routerLink="/profile"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+          >
+            Profile
+          </p>
+          <p
+          routerLink="cards"
+          routerLinkActive="active"
+          >Saved cards</p>
+          <p  routerLink="addresses"
+          routerLinkActive="active">Addresses</p>
+        </div>
+      </div>
+      <div class="section lastSection">
+        <p class="header">LEGAL</p>
+        <div class="subSections">
+          <p routerLink="../termsofuse"
+          routerLinkActive="active">Terms of Use</p>
+          <p
+          routerLink="../privacypolicy"
+          routerLinkActive="active"
+          >Privacy Policy</p>
+        </div>
+      </div>
+    </div>
+    <div class="mainBody">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

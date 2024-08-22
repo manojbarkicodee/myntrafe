@@ -1,0 +1,51 @@
+<div class="coupon-Container">
+  <div class="header">
+    <p>APPLY COUPON</p>
+    <i (click)="onNoClick()" class="bi bi-x-lg pointer"></i>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="couponlist">
+    <div class="availableCoupons">
+      <div
+        class="coupons"
+        *ngFor="let coupon of availableCoupons; let i = index"
+      >
+        <mat-checkbox
+          (change)="checkBoxChangeMethod($event, i)"
+          [checked]="coupon.checked"
+          value=""
+        ></mat-checkbox
+        ><span [ngClass]="!coupon.checked ? 'noActive' : 'couponCode'">{{
+          coupon.couponCode
+        }}</span>
+        <p class="savingAmount">
+          Save<i class="bi bi-currency-rupee"></i>{{ coupon.saving }}
+        </p>
+        <p class="minimumPurchase">{{ coupon.minimumPurchaseDescription }}</p>
+      </div>
+    </div>
+    <div *ngIf="!data.edit" class="unclockedCoupons">
+      <p class="header">UNCLOCK MORE COUPONS</p>
+      <div class="coupons" *ngFor="let coupon of lockedCoupons">
+        <mat-checkbox
+          [disabled]="true"
+          [checked]="coupon.checked"
+          value=""
+        ></mat-checkbox
+        ><span class="couponCode">{{ coupon.couponCode }}</span>
+        <p class="savingAmount">
+          Save<i class="bi bi-currency-rupee"></i>{{ coupon.saving }}
+        </p>
+        <p class="minimumPurchase">{{ coupon.minimumPurchaseDescription }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="fotter">
+    <span>
+      <p>Maximum savings:</p>
+      <p class="price">
+        <i class="bi bi-currency-rupee"></i>{{ totalSave }}
+      </p> </span
+    ><button (click)="applyCoupons()" class="applyBtn">APPLY</button>
+  </div>
+</div>

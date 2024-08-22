@@ -1,0 +1,58 @@
+<div class="noProducts" *ngIf="products && products.length===0 && paginationData && paginationData.length===0">
+  <div>
+    <img [src]="'../../../../assets/NoProducts.png'" alt="" />
+    <h1>We couldn't find any matches</h1>
+  </div>
+</div>
+<div *ngIf="paginationData && paginationData.length!==0" class="product-container">
+  <div #main class="products-main-section">
+    <div
+      class="product"
+      *ngFor="let product of paginationData; let ind = index"
+    >
+      <app-indivisual-product
+        (click)="navigateToNextRoute(product.id, product.category.title)"
+        [product]="product"
+      ></app-indivisual-product>
+    </div>
+  </div>
+  <nav *ngIf="totalPage>1" aria-label="Page navigation example">
+    <ul
+      class="pagination"
+      [ngClass]="
+        showNextButton && showPrevButton ? 'to-change-width-onActive' :showPrevButton?'change-width': ''
+      "
+    >
+      <li
+        class="page-item toChangePage-li to-left-align"
+        *ngIf="showPrevButton"
+      >
+        <a class="page-link toChangebutton" (click)="redirectToPreviousPage()"
+          ><i class="bi bi-chevron-left"></i>Previous</a
+        >
+      </li>
+
+      <li
+        class="page-item page-button-li"
+        (click)="redirectToPageMethod(pageNum)"
+        *ngFor="let pageNum of showPages; let i = index"
+      >
+        <a
+          [ngClass]="pageNum === page ? 'active-to' : ''"
+          class="page-link page-button"
+          >{{ pageNum }}</a
+        >
+      </li>
+
+      <li
+        class="page-item toChangePage-li to-right-align"
+        *ngIf="showNextButton"
+        (click)="redirectToNextPage()"
+      >
+        <a class="page-link toChangebutton"
+          >Next <i class="bi bi-chevron-right"></i
+        ></a>
+      </li>
+    </ul>
+  </nav>
+</div>

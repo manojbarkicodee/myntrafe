@@ -1,0 +1,88 @@
+.profileContainer {
+  width: 73%;
+  margin: auto;
+  margin-top: 40px;
+  p {
+    margin-bottom: 5px;
+  }
+  & > .header {
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.24);
+    .BoldPara {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 0px;
+      line-height: 15px;
+    }
+    .userName {
+      font-size: 10px;
+    }
+  }
+  .profileRouteBody {
+    display: flex;
+
+    .sideBar {
+      border-right: 0.5px solid rgba(0, 0, 0, 0.24);
+      width: 20%;
+      padding: 0px 20px 0px 0px;
+
+      .section {
+        .header {
+          color: rgb(126, 129, 140);
+          line-height: 14px;
+          font-size: 12px;
+          padding-top: 15px;
+        }
+        .subSections {
+          font-size: 14px;
+          color: rgb(40, 44, 63);
+          line-height: 17px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          font-weight: 300;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.24);
+      }
+      .lastSection {
+        border-bottom: 0px;
+      }
+    }
+    .mainBody {
+      width: 80%;
+    }
+  }
+}
+
+.active{
+    color: rgb(27,205,168)!important;
+    font-weight: 500!important;
+}
+
+@media screen and (max-width:900px) {
+  .profileContainer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:500px){
+  .profileContainer {
+      width: 100%;
+      margin-top: 0px;
+  
+      &>.header {
+        display: none;
+      }
+  
+      .profileRouteBody {
+        .sideBar {
+          display: none;
+        }
+  
+        .mainBody {
+          width: 100%;
+        }
+      }
+    }
+}

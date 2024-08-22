@@ -1,0 +1,309 @@
+.addressContainer {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  gap: 15px;
+
+  .addressDetails {
+    width: 70vw;
+    margin-right: 10px;
+    padding-top: 20px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      p {
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 10px;
+        font-weight: 500;
+        padding: 5px 12px 5px 12px;
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+    }
+
+    .addresses {
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .otherAddress {
+        height: fit-content;
+      }
+    }
+
+    .addNewAddress {
+      border: 0.5px dashed rgba(0, 0, 0, 0.486);
+      font-weight: 500;
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100%;
+      background-color: white;
+    }
+  }
+
+  .pricingDetails {
+    padding-top: 20px;
+    width: 40vw;
+    border-left: 0.5px solid rgba(0, 0, 0, 0.192);
+    padding: 15px;
+
+    .header {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .estimatedDeliveries {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .product {
+        img {
+          width: 11%;
+          margin-right: 8px;
+          object-fit: contain;
+        }
+
+        span {
+          font-size: 12px;
+          color: rgb(40, 44, 63);
+
+          .deliveryDate {
+            font-weight: 500;
+            color: black;
+          }
+        }
+      }
+    }
+
+    .priceList {
+      margin-top: 30px;
+
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .priceInfo {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          font-size: 12px;
+        }
+
+        .price {
+          text-decoration: line-through;
+        }
+      }
+
+      .totalInfo {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 14px !important;
+        margin-top: 10px;
+      }
+
+      .btnPlaceOrder {
+        width: 100%;
+        font-size: 12px;
+        border: 0px;
+        background-color: rgb(255, 63, 108);
+        color: white;
+        font-weight: 500;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.greenColor {
+  color: green !important;
+}
+
+.redColor {
+  color: rgb(255, 63, 108);
+}
+
+.toScroll {
+  height: 50vh !important;
+  overflow-y: scroll;
+}
+
+.EachAddress {
+  border: 0.5px solid rgba(0, 0, 0, 0.096);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  &:hover {
+    cursor: pointer;
+    border: 0.5px solid rgba(0, 0, 0, 0.164);
+  }
+
+  .header {
+    margin-bottom: 0px !important;
+  }
+
+  .description {
+    margin-top: 0px;
+    padding-left: 40px;
+
+    .address,
+    .moreDetails,
+    .mobile {
+      font-size: 11px;
+      margin: 0px;
+      font-weight: 100;
+      color: rgb(66, 69, 83);
+
+      .number {
+        font-weight: 500;
+        color: black;
+      }
+    }
+
+    .moreDetails {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.displaynone {
+  display: none;
+}
+
+.showElement {
+  display: block;
+}
+
+.showOnChecked {
+  margin-left: 25px;
+
+  ul {
+    margin-top: 10px;
+
+    li {
+      font-size: 12px;
+      color: rgb(66, 69, 83);
+    }
+  }
+
+  .btn-left {
+    margin-left: 15px;
+  }
+}
+
+.btn-outline-dark {
+  --bs-btn-hover-bg: white !important;
+  --bs-btn-hover-color: black;
+  font-size: 11px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+:host ::ng-deep .mat-mdc-radio-button {
+  .mat-radio-ripple {
+    display: none;
+  }
+
+  .mat-mdc-radio-ripple {
+    display: none;
+  }
+}
+
+:host ::ng-deep .mat-mdc-radio-touch-target {
+  height: 20px;
+  width: 20px;
+}
+
+:host ::ng-deep.mdc-radio__outer-circle {
+  border-width: 1px;
+}
+
+:host ::ng-deep .mdc-radio__background {
+  height: 18px;
+  width: 18px;
+}
+
+:host ::ng-deep .mdc-radio__inner-circle {
+  width: 80%;
+  height: 80%;
+  border-width: 9px;
+}
+
+:host ::ng-deep .mdc-form-field > label {
+  padding-left: 0px;
+
+  .name {
+    font-weight: 500;
+    margin-right: 10px;
+  }
+
+  .belongsTo {
+    font-size: 9px;
+    border: 1px solid rgb(36, 178, 149);
+    color: rgb(36, 178, 149);
+    padding: 3px 7px 3px 7px;
+    border-radius: 10px;
+    font-weight: 500;
+  }
+}
+
+:host ::ng-deep .cdk-mouse-focused {
+  background-color: aliceblue !important;
+  color: white !important;
+}
+
+:host ::ng-deep .mat-mdc-radio-button.mat-accent {
+  --mat-mdc-radio-checked-ripple-color: white;
+  --mat-mdc-radio-ripple-color: white;
+}
+@media screen and (max-width:1300px) {
+  .addressContainer {
+  width: 90%;
+  }
+}
+@media screen and (max-width:900px){
+  .addressContainer {
+    width: 100%;
+    flex-direction: column;
+  background-color: white;
+    .addressDetails {
+      width: 100%;
+      padding: 10px;
+    }
+
+  .pricingDetails {
+    width: 100%;
+    border-left: 0px;
+    .priceList{
+      .btnWrapper{
+        padding: 10px;
+        background-color: white;
+        position: fixed;
+      bottom: 0px;
+      z-index: 120;
+      left: 0px;
+      
+      right: 0px;
+      width: 100%;
+      }
+    }
+  }
+}
+}

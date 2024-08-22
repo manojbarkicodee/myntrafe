@@ -1,0 +1,23 @@
+<div class="card-Container">
+  <div class="header">
+    <p>CANCEL ORDERED PRODUCT</p>
+    <i (click)="onNoClick()" class="bi bi-x-lg pointer"></i>
+  </div>
+  <mat-divider></mat-divider>
+  <p class="reasonHeader">SELECT REASON</p>
+  <div class="reasonsToCancel">
+    <mat-radio-button
+      (change)="checkReasonToCancel(reason.reason)"
+      [checked]="reason.checked"
+      *ngFor="let reason of reasonsToCancelOrder; let i = index"
+      #radioBtn
+      ><span class="name">{{ reason.reason }}</span></mat-radio-button
+    >
+  </div>
+
+  <div class="fotter">
+    <button type="button" (click)="cancelProduct()" class="addCard">
+      CANCEL
+    </button>
+  </div>
+</div>

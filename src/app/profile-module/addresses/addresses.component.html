@@ -1,0 +1,195 @@
+<div *ngIf="!checkAddresses" class="noAddress">
+    <div class="noAddressImage"></div>
+    <h4>SAVE YOUR ADDRESSES NOW.</h4>
+    <p>Add yours home and office addresses and enjoy faster checkout</p>
+    <button class="addAddressBtn" (click)="openFormDialog(false)">+ ADD NEW ADDRESS</button>
+</div>
+<div class="addressDetails">
+    <!-- <app-input-address *ngIf="!checkAddresses"></app-input-address> -->
+   
+    <div *ngIf="checkAddresses">
+      <div class="header">
+        <p>Saved Addresses</p>
+        <button (click)="openFormDialog(false)">+ ADD NEW ADDRESS</button>
+      </div>
+      <div class="addresses">
+        <p class="header">DEFAULT ADDRESS</p>
+        <div
+          (click)="selectAddressMethod(  defaultAddress.id,element)"
+          *ngIf="defaultAddress"
+          class="EachAddress"
+        >
+        <div style="padding: 10px;padding-bottom: 0px!important;">
+            <div class="header">
+                <span class="name">{{
+                    defaultAddress.name | firstlettercap
+                  }}</span
+                  ><span class="belongsTo">{{
+                    defaultAddress.belongsTo.toUpperCase()
+                  }}</span>
+              </div>
+              <div class="description">
+                <p class="address">
+                  {{ defaultAddress.address.toUpperCase() }}
+                 
+                </p>
+                <p class="address">{{ defaultAddress.locality.toUpperCase() }}</p>
+                <p class="address"> {{ defaultAddress.district }} -
+                    {{ defaultAddress.pincode }}</p>
+                </div>
+              
+        </div>
+         
+          <div #element class="showOnChecked displaynone">
+            <div style="padding: 10px;padding-top: 0px;">
+                <p class="address">{{ defaultAddress.state }}</p>
+                <p class="mobile" style="margin-top: 10px;">
+                  Mobile:
+                  <span class="number">{{ defaultAddress.phoneNumber }}</span>
+                </p>
+            </div>
+               
+             
+            <div class="actionBtns"
+            
+            >
+            <div class="action"
+            (click)="editAddresFormDetails(defaultAddress, true)"
+
+              style="border-right: 0.5px solid rgba(0, 0, 0, 0.092);">
+                    <button
+              
+                  >
+                    EDIT
+                  </button>
+                </div>
+               
+              <div 
+              (click)="deleteAddressMethod(defaultAddress.id)"
+
+               class="action">
+                <button
+                
+              >
+                REMOVE
+              </button>
+              </div>
+
+            </div>
+         
+          </div>
+        </div>
+        <p class="header" *ngIf="otherAddresses.length>0">OTHER ADDRESS</p>
+
+        <div #otherAddress class="otherAddress">
+            <div
+            *ngFor="let Address of otherAddresses; let i = index"
+            (click)="selectAddressMethod(  Address.id,element)"
+          
+            class="EachAddress"
+          >
+          <div style="padding: 10px;padding-bottom: 0px!important;">
+              <div class="header">
+                  <span class="name">{{
+                    Address.name | firstlettercap
+                    }}</span
+                    ><span class="belongsTo">{{
+                        Address.belongsTo.toUpperCase()
+                    }}</span>
+                </div>
+                <div class="description">
+                  <p class="address">
+                    {{ Address.address.toUpperCase() }}
+                   
+                  </p>
+                  <p class="address">{{ Address.locality.toUpperCase() }}</p>
+                  <p class="address"> {{ Address.district }} -
+                      {{ Address.pincode }}</p>
+                  </div>
+                
+          </div>
+           
+            <div #element class="showOnChecked displaynone">
+              <div style="padding: 10px;padding-top: 0px;">
+                  <p class="address">{{ Address.state }}</p>
+                  <p class="mobile" style="margin-top: 10px;">
+                    Mobile:
+                    <span class="number">{{ Address.phoneNumber }}</span>
+                  </p>
+              </div>
+                 
+               
+              <div class="actionBtns">
+                  <div (click)="editAddresFormDetails(Address, true)" class="action" style="border-right: 0.5px solid rgba(0, 0, 0, 0.092);">
+                      <button
+                
+                      
+                    >
+                      EDIT
+                    </button>
+                  </div>
+                 
+                <div (click)="deleteAddressMethod(Address.id)" class="action">
+                  <button
+                  
+                  
+                >
+                  REMOVE
+                </button>
+                </div>
+  
+              </div>
+           
+            </div>
+          </div>
+          <!-- <div
+            *ngFor="let Address of otherAddresses; let i = index"
+            (click)="selectAddressMethod( element, Address.id)"
+            class="EachAddress"
+          >
+            <div class="header">
+              <mat-radio-button #radioBtn [value]="i"
+                ><span class="name">{{ Address.name | firstlettercap }}</span
+                ><span class="belongsTo">{{
+                  Address.belongsTo.toUpperCase()
+                }}</span></mat-radio-button
+              >
+            </div>
+            <div class="description">
+              <p class="address">
+                {{ Address.address.toUpperCase() }}
+                <span>{{ Address.locality.toUpperCase() }}</span>
+              </p>
+              <p class="moreDetails">
+                {{ Address.district }},{{ Address.state }} -
+                {{ Address.pincode }}
+              </p>
+              <p class="mobile">
+                Mobile: <span class="number">{{ Address.phoneNumber }}</span>
+              </p>
+            </div>
+            <div #element class="showOnChecked displaynone">
+              <ul>
+                <li>Cash on delivery available</li>
+              </ul>
+              <button
+                class="btn btn-outline-dark btn-left"
+                (click)="deleteAddressMethod(Address.id)"
+              >
+                REMOVE
+              </button>
+              <button
+                (click)="editAddresFormDetails(Address, true)"
+                class="btn btn-outline-dark"
+              >
+                EDIT
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <!-- <button (click)="openFormDialog(false)" class="addNewAddress redColor">
+        + Add New Address
+      </button> -->
+    </div>
+  </div>

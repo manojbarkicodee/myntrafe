@@ -1,0 +1,135 @@
+.sizedialog {
+  width: 450px;
+  position: relative;
+
+  .bi {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+
+    img {
+      width: 80px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    & > div {
+      .description {
+        color: #3e4152;
+        font-size: 15px;
+        line-height: 20px;
+      }
+
+      .priceList {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 13.5px;
+
+        .current-price {
+          font-weight: 600;
+          color: black;
+        }
+
+        .original-price {
+          text-decoration: line-through;
+          color: rgba(0, 0, 0, 0.466);
+        }
+
+        .discount-label {
+          color: rgb(255, 172, 133);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .sizeChart {
+    margin-top: 10px;
+
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      color: black;
+    }
+
+    .sizes {
+      display: flex;
+      justify-content: space-between;
+      width: 65%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      margin-left: 15px;
+
+      & > div {
+        width: 42px;
+        height: 42px;
+        box-sizing: border-box;
+        padding: auto;
+        padding-top: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 0.5px solid rgba(0, 0, 0, 0.185);
+        border-radius: 50%;
+        text-align: center;
+
+        &:hover {
+          border-color: red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .sizeListBtn {
+    background-color: rgb(255, 63, 108);
+    width: 100%;
+    border: 0px;
+    padding-top: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 100;
+    padding-bottom: 10px;
+    border-radius: 5px;
+  }
+}
+
+.onSelect {
+  color: red;
+  border-color: red !important;
+}
+
+
+@media screen and (max-width:500px) {
+  .sizedialog {
+      width: 100vw;
+  
+      .sizeChart {
+        .sizes {
+          width: 70%;
+        }
+      }
+  
+      .bi {
+        position: absolute;
+        top: 0px;
+        right: 30px;
+      }
+  
+      .header {
+        &>div {
+          width: 60%;
+        }
+      }
+  
+      .sizeListBtn {
+        width: 90%;
+      }
+    }
+}

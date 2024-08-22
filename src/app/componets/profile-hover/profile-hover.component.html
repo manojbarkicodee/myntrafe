@@ -1,0 +1,19 @@
+<div [ngClass]="hover ? 'to-profile-details' : 'display-hide'">
+  <ng-template #profileDetails>
+    <p [routerLink]="isMobileView?'/profile/dashboard':'/profile'" class="heading">Welcome {{ userName }}</p>
+  </ng-template>
+  <div *ngIf="!checkLogin; else profileDetails">
+    <p class="heading">Welcome</p>
+    <p>To access account and manage orders</p>
+
+    <button (click)="navigateToSignUp()" class="loginbtn">LOGIN/SIGNUP</button>
+  </div>
+  <mat-divider></mat-divider>
+  <div (click)="closeProfile()" class="column">
+    <a class="anchor-tag-style" routerLink="profile/orders">Orders</a>
+    <a class="anchor-tag-style" routerLink="wishlist">Wishlist</a>
+    <a class="anchor-tag-style" href="">Contact Us</a>
+    <a class="anchor-tag-style" href="">Myntra Insider</a>
+    <a class="anchor-tag-style" *ngIf="checkLogin" (click)="logoutMethod()">Logout</a>
+  </div>
+</div>

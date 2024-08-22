@@ -1,0 +1,19 @@
+<div class="deleteAlertContainer">
+  <div class="alert">
+    <img *ngIf="data.single" [src]="data.imageurl" alt="" />
+    <i (click)="onNoClick()" class="bi bi-x-lg pointer"></i>
+    <div class="details">
+      <p class="header">{{ data.header }}</p>
+      <p class="discription">{{ data.description }}</p>
+    </div>
+  </div>
+  <div class="buttons">
+    <p (click)="methodTo_deleteProduct(data.btntext)" class="remove pointer">
+      {{ data.btntext }}
+    </p>
+    <mat-divider [vertical]="true"></mat-divider>
+    <p class="wishlist pointer" (click)="methodTo_moveProductToWishlist()">
+      MOVE TO WISHLIST
+    </p>
+  </div>
+</div>

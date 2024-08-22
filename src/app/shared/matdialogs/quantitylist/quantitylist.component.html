@@ -1,0 +1,16 @@
+<div mat-dialog-content class="sizedialog">
+  <i (click)="onNoClick(false)" class="bi bi-x-lg pointer"></i>
+  <div class="quantityChart">
+    <p>Select Quantity</p>
+    <div class="quanties">
+      <div
+        (click)="selectQuantity(quantity, quantityElement)"
+        #quantityElement
+        *ngFor="let quantity of quantities"
+      >
+        {{ quantity }}
+      </div>
+    </div>
+  </div>
+  <button (click)="onNoClick(true)" class="quantityListBtn">Done</button>
+</div>

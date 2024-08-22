@@ -1,0 +1,23 @@
+<div class="product">
+    <img [src]="product.productimage" alt="">
+    <mat-checkbox [(ngModel)]="checkedAll" (change)="onChangeEvent_CheckBox($event,product.id)"
+        class="custom-checkbox"></mat-checkbox>
+    <div class="product-details">
+        <p class="brand">{{product.brand.name}} </p>
+        <i (click)="opendeleteDialog(product.id,$event)" class="bi bi-x-lg pointer"></i>
+        <p class="desription pointer">{{product.description}}</p>
+        <div class="chooseMoreDetails">
+            <p class="size pointer" (click)="openSizeDialog($event,product.id)">Size:{{product.productDetails.size}} <i
+                    class="bi bi-caret-down-fill"></i></p>
+            <p class="quantity pointer" (click)="openQuantityDialog($event)">Qty:{{product.productDetails.quantity}}<i
+                    class="bi bi-caret-down-fill"></i></p>
+        </div>
+        <div class="priceList default">
+            <span class="currentPrice"><i class="bi bi-currency-rupee"></i>{{ price }}</span>
+            <span class="originalPrice">MRP <span>{{ mrp }}</span></span>
+            <span class="discountLabel">{{ product.discountDisplayLabel }}</span>
+        </div>
+        <p class="returnPolicy"><span>14 days</span> return available</p>
+        <p class="deliveryDate" *ngIf="checkBoxValue"><i class="bi bi-check2"></i><span>Delivery by</span> {{productDeliveryDate}}</p>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+.privacyPolicyContainer {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1%;
+
+    .header {
+        font-weight: 300;
+        font-size: 24px;
+    }
+
+    .details {
+        .title {
+            font-weight: 500;
+            text-align: left;
+            font-size: 16px;
+        margin-top: 25px;
+
+        }
+
+        .description {
+            text-align: left;
+            font-size: 13px;
+            color: rgb(126, 129, 140);
+        }
+    }
+}
+
+@media screen and (max-width:900px) {
+    .privacyPolicyContainer {
+      width: 90%;
+    }
+  }

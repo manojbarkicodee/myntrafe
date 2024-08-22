@@ -1,0 +1,131 @@
+.similarProductsContainer {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+
+    .product {
+      border: 0.5px solid rgba(0, 0, 0, 0.137);
+      position: relative;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      .ratings {
+        position: absolute;
+        top: 91%;
+        left: 4%;
+      }
+
+      .product-details {
+        padding: 10px;
+
+        p {
+          line-height: 10px;
+          font-size: 12px;
+
+          span {
+            margin-right: 5px;
+          }
+        }
+
+        .brand {
+          font-weight: 500;
+        }
+
+        .description {
+          color: rgba(0, 0, 0, 0.466);
+          width: 100%;
+          line-height: 15px;
+        }
+
+        .current-price {
+          font-weight: 500;
+          font-size: 13.5px;
+        }
+
+        .original-price {
+          text-decoration: line-through;
+          color: rgba(0, 0, 0, 0.466);
+        }
+
+        .discount-label {
+          color: rgb(255, 172, 133);
+          line-height: 15px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  font-weight: 600;
+  margin-right: 12px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+:host ::ng-deep .mat-mdc-standard-chip {
+  &:not(.mdc-evolution-chip--disabled) {
+    background-color: white;
+    border-radius: 2px;
+    height: 20px;
+  }
+}
+
+:host ::ng-deep .mdc-evolution-chip__text-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+:host ::ng-deep .mat-icon {
+  width: 100%;
+  height: 12px;
+}
+
+:host ::ng-deep .material-icons {
+  font-size: 14px;
+  color: rgb(20, 149, 143);
+}
+.containerWrapper{
+  position: relative;
+}
+
+@media screen and (max-width:1240px) {
+  .similarProductsContainer {
+    .products {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width:900px) {
+  .similarProductsContainer {
+    .products {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width:900px) {
+  .similarProductsContainer {
+    .header{
+      margin-left: 15px;
+    }
+    .products {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    gap:0px;
+    margin-left: 15px;
+    padding-bottom: 10px;
+    }
+    .product{
+      min-width: 12rem;
+      margin-right: 10px;
+    }
+  }
+}

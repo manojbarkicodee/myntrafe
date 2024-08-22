@@ -1,0 +1,85 @@
+.signup-container {
+  margin: auto;
+  width: 30%;
+  height: 70vh;
+}
+
+.signup-container {
+  .signup-img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .signup-details {
+    padding: 10px 20px 10px 20px;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      input {
+        padding: 7px;
+        font-size: small;
+        border: 0.5px solid rgb(212, 213, 217);
+        &:focus {
+          outline: 0.5px solid red;
+        }
+      }
+      h3 {
+        span {
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}
+
+.red {
+  color: rgb(255, 63, 108);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@mixin validateMessage() {
+  color: rgb(255, 146, 83);
+  font-size: 10px;
+}
+
+.validatorMessage {
+  @include validateMessage();
+}
+
+.alltext {
+  color: rgb(99, 94, 101);
+  font-size: 12px;
+}
+.submitbtn {
+  border: 0px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(238, 103, 134);
+}
+
+.btn-color-ondisabled {
+  background-color: rgb(255, 63, 108);
+}
+
+.fontsize-small {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.signupPage {
+  min-height: 70vh;
+}
+
+@media screen and (max-width:900px){
+  .signup-container {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width:500px){
+  .signup-container {
+    width: 100%;
+  }
+}

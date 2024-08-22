@@ -1,0 +1,37 @@
+<div mat-dialog-content class="sizedialog">
+  <i (click)="onNoClick()" class="bi bi-x-circle-fill pointer"></i>
+  <div class="header">
+    <img [src]="mobileData? mobileData.wishlistproduct.productimage: data.wishlistproduct.productimage" alt="" />
+    <div>
+      <p class="description">{{data? data.wishlistproduct.productName : mobileData.wishlistproduct.productName}}</p>
+      <p class="priceList">
+        <span class="current-price">RS.{{ data ? data.wishlistproduct.price : mobileData.wishlistproduct.price  }}</span>
+        <span class="original-price">{{ data ? data.wishlistproduct.mrp : mobileData.wishlistproduct.mrp }}</span>
+        <span class="discount-label">{{
+        data ?  data.wishlistproduct.discountDisplayLabel : mobileData.wishlistproduct.discountDisplayLabel
+        }}</span>
+      </p>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="sizeChart">
+    <p>Select Size</p>
+    <div class="sizes">
+      <div
+        #sizeElement
+        (click)="selectSize(size.size, sizeElement)"
+        *ngFor="let size of data ? data.wishlistproduct.sizes : mobileData.wishlistproduct.sizes"
+      >
+        {{ size.size }}
+      </div>
+    </div>
+  </div>
+  <button
+    (click)="
+     data? data.checkRoute ? addProductsToBag(data.wishlistproduct.id):addSize() : mobileData.checkRoute ?addProductsToBag(mobileData.wishlistproduct.id): addSize()
+    "
+    class="sizeListBtn"
+  >
+    Done
+  </button>
+</div>

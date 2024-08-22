@@ -1,0 +1,83 @@
+.card-Container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 10px;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .bi {
+      font-size: 15px;
+      font-weight: 500;
+      color: black;
+    }
+  }
+  .orderedProducts {
+    padding: 0px 0px 0px 20px;
+    height: 150px;
+    margin-bottom: 30px;
+    overflow-y: scroll;
+    .productDetails {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      .productName {
+        width: 350px;
+        color: rgb(105, 110, 121);
+        font-size: 13px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .pricingDetails {
+    padding: 0px 20px 0px 20px;
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .label {
+        color: rgb(105, 110, 121);
+        font-size: 13px;
+      }
+      .price {
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .fotter {
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.103);
+    padding: 10px 20px 10px 20px;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .card-Container {
+    .header {
+      padding: 0px;
+      padding-top: 20px;
+    }
+    .orderedProducts {
+      padding: 0px;
+    }
+    .pricingDetails {
+      padding: 0px;
+    }
+    .fotter {
+      padding: 10px 0px 10px 0px;
+    }
+  }
+}

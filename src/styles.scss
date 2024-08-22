@@ -1,0 +1,115 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 1px;
+
+  font-family: Assistant, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+}
+
+.validatorMessage {
+  color: rgb(255, 146, 83);
+  font-size: 10px;
+  margin: 0px;
+}
+.wrapper {
+  position: relative;
+  top: 83px;
+ 
+}
+
+.pointer,
+img {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.default {
+  &:hover {
+    cursor: default;
+  }
+}
+
+.activeto {
+  font-weight: 500 !important;
+
+  color: #000000;
+}
+
+.anchor-tag-style {
+  text-decoration: none;
+  color: black;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.green-snackbar {
+  background-color: green;
+  color: white;
+
+  button {
+    background-color: green;
+    color: white;
+    border: none;
+  }
+}
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-supporting-text-font: Roboto, sans-serif;
+  --mdc-snackbar-supporting-text-line-height: 20px;
+  --mdc-snackbar-supporting-text-size: 12px;
+  --mdc-snackbar-supporting-text-weight: 500;
+}
+.mat-mdc-snack-bar-container {
+  &.warn {
+    --mdc-snackbar-container-color: rgb(100, 103, 117);
+    --mat-mdc-snack-bar-button-color: hsl(0, 30%, 95%);
+    --mdc-snackbar-supporting-text-color: #f8f5f5;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.info {
+    --mdc-snackbar-container-color: rgb(254, 87, 34);
+    --mat-mdc-snack-bar-button-color: hsl(0, 38%, 94%);
+    --mdc-snackbar-supporting-text-color: #fff9f9;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.success {
+    --mdc-snackbar-container-color: #4caf50;
+    --mat-mdc-snack-bar-button-color: hsl(0, 38%, 94%);
+    --mdc-snackbar-supporting-text-color: #fff9f9;
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.error {
+    --mdc-snackbar-container-color: #d32f2f;
+    --mat-mdc-snack-bar-button-color: hsl(0, 38%, 94%);
+    --mdc-snackbar-supporting-text-color: #fff9f9;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .wrapper{
+    height:70px;
+
+  }
+}

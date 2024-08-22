@@ -1,0 +1,119 @@
+<div class="card-Container">
+  <div class="header">
+    <p>ADD NEW CARD</p>
+    <i (click)="onNoClick()" class="bi bi-x-lg pointer"></i>
+  </div>
+  <mat-divider></mat-divider>
+  <form [formGroup]="cardForm" (ngSubmit)="saveCard()">
+    <div class="cardForm">
+      <div class="formGroup">
+        <div>
+          <label for="">CARD NUMBER</label>
+          <input
+            maxlength="16"
+            formControlName="cardnumber"
+            name="cardnumber"
+            type="text"
+            placeholder="Enter 16 digits card number*"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="cardForm.get('cardnumber')?.touched&&cardForm.get('cardnumber')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="cardForm.get('cardnumber')?.touched&&cardForm.get('cardnumber')?.errors?.['minlength']?.actualLength<cardForm.get('cardnumber')?.errors?.['minlength']?.requiredLength"
+          >
+            Minimun length is 16
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="cardForm.get('cardnumber')?.touched&&cardForm.get('cardnumber')?.errors?.['number']"
+          >
+            Only numbers are allowed
+          </p>
+        </div>
+
+        <div >
+          <label for="">CARD HOLDER NAME</label>
+          <input
+            formControlName="name"
+            name="name"
+            type="text"
+            placeholder="Enter card holder name*"
+          />
+          <p
+            class="validatorMessage"
+            *ngIf="cardForm.get('name')?.touched&&cardForm.get('name')?.errors?.['required']"
+          >
+            This is a mandatory field
+          </p>
+          <p
+            class="validatorMessage"
+            *ngIf="cardForm.get('name')?.touched&&cardForm.get('name')?.errors?.['string']"
+          >
+            Only alphabets and . are allowed
+          </p>
+        </div>
+        <div class="wrapperContainer">
+          <div style="margin-right: 5%;">
+            <label for="">CARD EXPIRY DATE</label>
+            <input
+              formControlName="date"
+              type="text"
+              name="date"
+              placeholder="valid thru(MM/YY)"
+            />
+            <p
+              class="validatorMessage"
+              *ngIf="cardForm.get('date')?.touched&&cardForm.get('date')?.errors?.['required']"
+            >
+              This is a mandatory field
+            </p>
+            <p
+              class="validatorMessage"
+              *ngIf="cardForm.get('date')?.touched&&cardForm.get('date')?.errors?.['date']"
+            >
+              invalid date format/date
+            </p>
+          </div>
+
+          <div>
+            <label for="">CVC/CVV</label>
+            <input
+              maxlength="3"
+              type="password"
+              formControlName="cvv"
+              name="cvv"
+              placeholder="Enter CVC/CVV"
+            />
+            <p
+              class="validatorMessage"
+              *ngIf="cardForm.get('cvv')?.touched&&cardForm.get('cvv')?.errors?.['required']"
+            >
+              This is a mandatory field
+            </p>
+            <p
+              class="validatorMessage"
+              *ngIf="cardForm.get('cvv')?.touched&&cardForm.get('cvv')?.errors?.['minlength']?.actualLength<cardForm.get('cvv')?.errors?.['minlength']?.requiredLength"
+            >
+              Minimun length is 3
+            </p>
+            <p
+              class="validatorMessage"
+              *ngIf="cardForm.get('cvv')?.touched&&cardForm.get('cvv')?.errors?.['number']"
+            >
+              Only numbers are allowed
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fotter">
+      <button type="submit" class="addCard">SAVE CARD</button>
+    </div>
+  </form>
+</div>

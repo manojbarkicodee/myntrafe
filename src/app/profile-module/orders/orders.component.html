@@ -1,0 +1,27 @@
+<div *ngIf="noProducts"  class="noProducts">
+  <img class="noProductsImage" src="../../../../assets/profileDashboard/emptyOrderList.png" alt="">
+
+  <p class="description">You have't Placed Any Orders At...</p>
+</div>
+<div *ngIf="!noProducts" class="ordersContainer">
+  <div class="header">
+    <h2>All Orders</h2>
+    <p>from anytime</p>
+  </div>
+  <app-ordered-products
+    [checkOrders]="true"
+    [orderedProducts]="paginatedProducts"
+  ></app-ordered-products>
+  <div *ngIf="orderedProducts && orderedProducts.length > 5" class="pagination">
+    <span (click)="navToPreviousPage()" class="prevBtn pointer" *ngIf="showPrev"
+      >< Previous</span
+    >
+    <span class="default"
+      >Showing {{ startProductNumber }}-{{ endProductNUmber }} of
+      {{ totalProducts }}</span
+    >
+    <span (click)="navToNextPage()" *ngIf="showNext" class="nextBtn pointer"
+      >Next ></span
+    >
+  </div>
+</div>

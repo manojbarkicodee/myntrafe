@@ -1,0 +1,51 @@
+.navToLoginContainer {
+  text-align: center;
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: 150px;
+  h1 {
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 20px;
+  }
+  p {
+    color: #94989f;
+    font-size: 17px;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 30%;
+  }
+  & > div {
+    margin-bottom: 40px;
+    .bi {
+      &::before {
+        font-size: 100px;
+        color: rgb(115, 230, 206);
+      }
+    }
+  }
+  .btn {
+    color: rgb(52, 102, 232);
+    border-color: rgb(52, 102, 232);
+    font-weight: 500;
+    padding: 15px 50px 15px 50px;
+    &:hover {
+      background-color: white;
+      color: rgb(52, 102, 232);
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+  .navToLoginContainer {
+    padding-top: 0px;
+    height: 50vh;
+    p {
+      width: 90%;
+    }
+    .btn {
+      padding: 10px 30px;
+    }
+
+  }
+}

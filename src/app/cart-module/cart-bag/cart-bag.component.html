@@ -1,0 +1,145 @@
+<div *ngIf="productsCount === 0" class="empty-bagContainer">
+  <img src="../../../assets/empty-bag.webp" alt="" />
+  <h1 class="header">Hey, it feels so light!</h1>
+  <p class="description">There is nothing in your bag.Let's add some items</p>
+  <button routerLink="/wishlist" class="navToWishlist">
+    ADD ITEMS FROM WISHLIST
+  </button>
+</div>
+
+<div *ngIf="productsCount > 0" class="cartProductsContainer">
+  <div class="cart-products">
+    <div class="header">
+      <div class="selected-products">
+        <mat-checkbox
+          (change)="selectAllProducts($event)"
+          [indeterminate]="intermediate"
+          #selectionCheckBox
+          ><span
+            >{{ selected }}/{{ productsCount }} ITEMS SELECTED</span
+          ></mat-checkbox
+        >
+      </div>
+      <div class="buttons">
+        <i *ngIf="isMobileView" (click)="opendeleteDialog(true, $event)" class="bi bi-trash"></i>
+        <p *ngIf="!isMobileView" class="remove pointer" (click)="opendeleteDialog(true, $event)">
+          REMOVE
+        </p>
+        <mat-divider [vertical]="true"></mat-divider>
+        <i *ngIf="isMobileView" (click)="opendeleteDialog(false, $event)" class="bi bi-suit-heart"></i>
+        <p *ngIf="!isMobileView" (click)="opendeleteDialog(false, $event)" class="wishlist pointer">
+          MOVE TO WISHLIST
+        </p>
+      </div>
+    </div>
+
+    <div class="products">
+      <app-product
+        [checkedAll]="selectAll"
+        [selectedProductsdata]="selectedProducts"
+        (selectedProducts)="setSelectedProducts($event)"
+        [product]="product"
+        [isMobileView]="isMobileView"
+        *ngFor="let product of products"
+      ></app-product>
+    </div>
+
+    <div class="redirectToWishlist">
+      <div>
+        <i class="bi bi-bookmark"></i>
+        <span routerLink="/wishlist">Add More From Wishlist</span>
+      </div>
+      <i routerLink="/wishlist" class="bi bi-chevron-right pointer"></i>
+    </div>
+  </div>
+  <div class="pricingDetails">
+    <div class="coupons">
+      <p class="header">COUPONS</p>
+      <div class="couponList">
+        <div
+          class="coupon"
+         
+        >
+          <i class="bi bi-tag"></i>
+          <span *ngIf="!couponEditMode || selected === 0">Apply Coupons</span>
+          <div *ngIf="couponEditMode && selected > 0">
+            <p class="header">{{ totalAppliedCoupons }} Coupons applied</p>
+            <p class="savedInfo">
+              You saved additional <i class="bi bi-currency-rupee"></i>
+              {{ totalSavedAmount }}
+            </p>
+          </div>
+        </div>
+        <button (click)="openCouponList()">
+          {{ couponEditMode && selected > 0 ? "Edit" : "Apply" }}
+        </button>
+      </div>
+    </div>
+    <div *ngIf="selected > 0" class="giftcards">
+      <p class="header">GIFTING & PERSONALIZATION</p>
+      <div class="giftInfo">
+        <img
+          src="https://constant.myntassets.com/checkout/assets/img/gift-big.webp"
+          alt=""
+        />
+        <div class="giftDetails">
+          <p class="header">Buying for loved one?</p>
+          <p>
+            Gift wrap and personalized message on card, only for
+            <i class="bi bi-currency-rupee"></i>25
+          </p>
+          <p class="fotter">ADD GIFT WRAP</p>
+        </div>
+      </div>
+    </div>
+    <div class="priceList">
+      <p class="header">PRICE DETAILS({{ selected }} item)</p>
+      <div class="priceInfo">
+        <p>Total MRP</p>
+        <p><i class="bi bi-currency-rupee"></i>{{ pricingDetails.totalMrp }}</p>
+      </div>
+      <div *ngIf="selected > 0" class="priceInfo">
+        <p>Discount on MRP</p>
+        <p class="greenColor">
+          -<i class="bi bi-currency-rupee"></i
+          >{{ pricingDetails.discountOnMrp }}
+        </p>
+      </div>
+      <div *ngIf="selected > 0" class="priceInfo">
+        <p>Coupon Discount</p>
+        <p
+          (click)="!couponEditMode && openCouponList()"
+          class="pointer"
+          [ngClass]="couponEditMode ? 'greenColor' : 'redColor'"
+        >
+          {{
+            couponEditMode
+              ? -totalSavedAmount
+              : "Apply
+                    Coupon"
+          }}
+        </p>
+      </div>
+      <div *ngIf="selected > 0" class="priceInfo">
+        <p>Convenience Fee <span class="redColor">Know More</span></p>
+        <p>
+          <span class="price"><i class="bi bi-currency-rupee"></i>99</span
+          ><span class="greenColor">FREE</span>
+        </p>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="totalInfo">
+        <p>Total Amount</p>
+        <p>
+          <i class="bi bi-currency-rupee"></i>{{ pricingDetails.totalAmount }}
+        </p>
+      </div>
+<div class="btnWrapper">
+  <button (click)="methodTonavToAddress()" class="btnPlaceOrder">
+    PLACE ORDER
+  </button>
+</div>
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div
+  class="container-product"
+  (mouseenter)="mousehover()"
+  (mouseleave)="mouseleave()"
+>
+<div class="wrapperContainer">
+  <app-carousel
+  #carousel
+  [indicators]="indicators"
+  [images]="product.Images"
+  [ratings]="product.ratings"
+  [productDetails]="false"
+></app-carousel>
+<div *ngIf="indicators" class="navigate-to-wishlist">
+  <button
+    [disabled]="product.wishlisted"
+    [ngClass]="product.wishlisted ? 'activeWishlist' : ''"
+    (click)="addProductToWishlist($event, product.id)"
+    type="button"
+  >
+    <i
+      class="bi bi-heart-fill"
+      [ariaDisabled]="product.wishlisted"
+      [ngClass]="product.wishlisted ? 'bi-heart-fill' : 'bi-heart'"
+    ></i
+    >{{ product.wishlisted ? "WISHLISTED" : "WISHLIST" }}
+  </button>
+</div>
+</div>
+ 
+  <div class="product-details pointer">
+    <p class="brand">{{ product.brand.name }}</p>
+    <p class="description">{{ product.description }}</p>
+    <p>
+      <span class="current-price">Rs.{{ product.price }}</span>
+      <span class="original-price">{{ product.mrp }}</span>
+      <span class="discount-label">{{ product.discountDisplayLabel }}</span>
+    </p>
+  </div>
+</div>

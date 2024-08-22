@@ -1,0 +1,159 @@
+.selectCards{
+    width: 80%;
+    margin: auto;
+    margin-top: 3%;
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    p {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    button {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 5px 12px 5px 12px;
+      border: 1px solid black;
+      border-radius: 3px;
+    }
+  }
+
+  .cards {
+    .header {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+  }
+
+  .addNewCard {
+    border: 0.5px dashed rgba(0, 0, 0, 0.486);
+    font-weight: 500;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: white;
+  }
+}
+
+.EachCard {
+    border: 0.5px solid rgba(0, 0, 0, 0.096);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  
+    .name {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 35px;
+    }
+  
+    .otherDetails {
+    //   padding-left: 44px;
+  
+      p {
+        font-size: 12px;
+        color: rgb(255, 64, 129);
+  
+        span {
+          font-size: 12px;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.411);
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  
+    &:hover {
+      cursor: pointer;
+      border: 0.5px solid rgba(0, 0, 0, 0.164);
+    }
+  
+    .header {
+      margin-bottom: 0px !important;
+    }
+  }
+  
+  .toScroll {
+    height: 50vh !important;
+    overflow-y: scroll;
+  }
+  
+//   :host ::ng-deep .mat-mdc-radio-button {
+//     .mat-radio-ripple {
+//       display: none;
+//     }
+  
+//     .mat-mdc-radio-ripple {
+//       display: none;
+//     }
+//   }
+  
+//   :host ::ng-deep .mat-mdc-radio-touch-target {
+//     height: 20px;
+//     width: 20px;
+//   }
+  
+//   :host ::ng-deep.mdc-radio__outer-circle {
+//     border-width: 1px;
+//   }
+  
+//   :host ::ng-deep .mdc-radio__background {
+//     height: 18px;
+//     width: 18px;
+//   }
+  
+//   :host ::ng-deep .mdc-radio__inner-circle {
+//     width: 80%;
+//     height: 80%;
+//     border-width: 9px;
+//   }
+  
+//   :host ::ng-deep .cdk-mouse-focused {
+//     background-color: aliceblue !important;
+//     color: white !important;
+//   }
+  
+//   :host ::ng-deep .mat-mdc-radio-button.mat-accent {
+//     --mat-mdc-radio-checked-ripple-color: white;
+//     --mat-mdc-radio-ripple-color: white;
+//   }
+
+  .addAddressBtn{
+    font-size: 13px;
+    color: rgb(82, 110, 220);
+    font-weight: 500;
+    padding: 9px 20px 9px 20px;
+    border: 0.5px solid #0000003b;
+    border-radius: 3px;
+    background: white;
+    margin-top: 15px;
+}
+.noAddress{
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+   .noAddressImage{
+    background: url(/assets/profileDashboard/no-cards.png);
+    background-repeat: no-repeat;
+    height: 88px;
+    width: 140px;
+    margin: auto;
+    background-position: -1014px -71px;
+   } 
+   h4{
+font-size: 15px;
+font-weight: 500;
+   }
+   p{
+    font-size: 14px;
+    color: #0000007d;
+    width: 330px;
+    margin: auto;
+    font-weight: 400;
+   }
+}

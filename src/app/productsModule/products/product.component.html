@@ -1,0 +1,15 @@
+<div class="product-page">
+  <app-products-header [queryParams]="queryParams" [mobileView]="isMobileView"></app-products-header>
+  <mat-divider></mat-divider>
+  <div class="products-body-section">
+    <app-products-sidebar  [filterApply]="filterApply" [isMobileView]="isMobileView" *ngIf="isMobileView? enableFilter:true" [enableFilter]="enableFilter" [queryParams]="queryParams"></app-products-sidebar>
+
+    <app-products-main [isMobileView]="isMobileView" *ngIf="isMobileView? !enableFilter:true" [enableFilter]="enableFilter" [queryParams]="queryParams"></app-products-main>
+  </div>
+  <div class="actionButtons" >
+    <button (click)="enableFilter?ClickOnFilter():sort()"><mat-icon *ngIf="!enableFilter">sort</mat-icon> {{enableFilter?'CLOSE': 'SORT' }}</button>
+    <button (click)="enableFilter?applyFilter():ClickOnFilter()"><mat-icon *ngIf="!enableFilter">filter_alt</mat-icon> {{enableFilter ?'APPLY': 'FILTER' }}</button>
+  </div>
+</div>
+
+

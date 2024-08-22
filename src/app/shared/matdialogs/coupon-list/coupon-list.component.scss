@@ -1,0 +1,206 @@
+.coupon-Container {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 10px;
+
+    p {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .bi {
+      font-size: 20px;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  .couponlist {
+    height: 370px;
+    overflow-y: scroll;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .availableCoupons {
+      .coupons {
+        margin-top: 30px;
+
+        .couponCode {
+          color: rgb(255, 63, 108);
+          border: 1px dashed rgb(255, 63, 108);
+          padding: 10px 15px 10px 10px;
+          font-size: 12px;
+          font-weight: 500;
+          border-radius: 2px;
+        }
+
+        .savingAmount {
+          margin-left: 40px;
+          margin-top: 20px;
+          margin-bottom: 5px;
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .minimumPurchase {
+          margin-left: 40px;
+          margin-top: 0px;
+          font-size: 12px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    .unclockedCoupons {
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .coupons {
+        margin-bottom: 30px;
+
+        .couponCode {
+          color: rgba(14, 13, 13, 0.575);
+          border: 1px dashed rgba(10, 10, 10, 0.596);
+          padding: 10px 15px 10px 10px;
+          font-size: 12px;
+          font-weight: 500;
+          border-radius: 2px;
+        }
+
+        .savingAmount {
+          margin-left: 40px;
+          margin-top: 20px;
+          margin-bottom: 5px;
+          color: rgba(0, 0, 0, 0.5);
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        .minimumPurchase {
+          margin-left: 40px;
+          margin-top: 0px;
+          font-size: 12px;
+          color: rgba(0, 0, 0, 0.5);
+          border-bottom: 1px dashed rgba(0, 0, 0, 0.507);
+          padding-bottom: 10px;
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  .fotter {
+    display: flex;
+    justify-content: space-between;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.103);
+    padding: 0px;
+    padding-top: 12px;
+
+    p {
+      margin: 0px;
+      margin-left: 34%;
+      font-size: 12px;
+      width: 140px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.562);
+    }
+
+    span {
+      .price {
+        font-weight: 500;
+        color: black;
+      }
+    }
+
+    .applyBtn {
+      font-size: 13px;
+      height: fit-content;
+      border: 0px;
+      background-color: rgb(255, 63, 108);
+      color: white;
+      font-weight: 500;
+      padding: 10px 110px 10px 110px;
+      margin-right: 10px;
+      border-radius: 2px;
+    }
+  }
+}
+
+.noActive {
+  color: black;
+  border: 1px dashed black;
+  padding: 10px 15px 10px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 2px;
+}
+
+:host ::ng-deep .mdc-checkbox__ripple {
+  display: none;
+}
+
+:host ::ng-deep .mat-mdc-checkbox-ripple {
+  display: none;
+}
+
+:host ::ng-deep mat-checkbox {
+  height: 25px;
+
+  .mdc-checkbox__background {
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid rgba(0, 0, 0, 0.555);
+    left: 0px;
+  }
+}
+
+:host ::ng-deep .mdc-form-field {
+  label {
+    font-size: 13px;
+    width: 100%;
+  }
+}
+
+:host ::ng-deep .mat-mdc-checkbox {
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      top: 10px;
+      height: 20px;
+    }
+
+    .mat-mdc-checkbox-touch-target {
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+  .coupon-Container {
+    .couponlist {
+      height: 80vh;
+    }
+
+    .fotter {
+      p {
+        margin-left: 10%;
+      }
+
+      .applyBtn {
+        padding: 10px 50px 10px 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .coupon-Container {
+    .couponlist {
+      height: 72vh;
+    }
+  }
+}

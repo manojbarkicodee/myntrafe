@@ -1,0 +1,30 @@
+<div class="similarProductsContainer">
+  <p class="header">SIMILAR PRODUCTS</p>
+  <div class="products">
+    <div
+      class="product"
+      (click)="navigateToProductDetails(product.id)"
+      *ngFor="let product of similarProducts"
+    >
+    <div class="containerWrapper">
+      <img [src]="product.productimage" alt="" />
+      <mat-chip class="ratings">
+        {{ product.ratings.toFixed(1) }}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon=""
+          >grade</mat-icon
+        >
+      </mat-chip>
+    </div>
+     
+      <div class="product-details pointer">
+        <p class="brand">{{ product.brand.name }}</p>
+        <p class="description">{{ product.description }}</p>
+        <p>
+          <span class="current-price">RS.{{ product.price }}</span>
+          <span class="original-price">{{ product.mrp }}</span>
+          <span class="discount-label">{{ product.discountDisplayLabel }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

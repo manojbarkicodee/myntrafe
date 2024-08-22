@@ -1,0 +1,36 @@
+<div *ngIf="cards.length===0"  class="noAddress">
+    <div class="noAddressImage"></div>
+    <h4>SAVE YOUR CREDIT/DEBIT CARDS DURING PAYMENT</h4>
+    <p>It's convenient to pay with saved cards. Your card information will be secure, we use 128-bit encryption</p>
+    <button class="addAddressBtn" (click)="openFormDialog()">+ ADD NEW CARD</button>
+</div>
+<div *ngIf="cards.length>0" class="selectCards">
+    <div class="header">
+      <p>Saved cards</p>
+      <button (click)="openFormDialog()">ADD NEW CARD</button>
+    </div>
+    <div #scrollable class="cards">
+      <div
+        *ngFor="let Card of cards; let i = index"
+        class="EachCard"
+      >
+        <div class="header">
+          <span class="name">{{
+              Card.name | firstlettercap
+            }}</span>
+            <mat-icon (click)="deleteCard(Card.id)">delete</mat-icon>
+        </div>
+        <div class="otherDetails">
+          <p>
+            <span>CARD NUMBER:</span>{{ Card.cardnumber | maskingCardNumber }}
+          </p>
+          <p>
+            <span>EXPIRY DATE:</span>{{ Card.expirydate | formatingDate }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- <button (click)="openFormDialog()" class="addNewCard redColor">
+      + Add New Card
+    </button> -->
+  </div>

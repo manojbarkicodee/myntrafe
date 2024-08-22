@@ -1,0 +1,45 @@
+<div class="products-header-section">
+  <!-- <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item anchor-tag-style"><a>Home</a></li>
+      <li class="breadcrumb-item anchor-tag-style"><a>Womens</a></li>
+      <li class="breadcrumb-item anchor-tag-style activeto" aria-current="page">
+        Mens
+      </li>
+    </ol>
+  </nav> -->
+
+  <p>
+    <span class="activeto header">{{ category }} Products</span>-{{
+      productsCount
+    }}
+    items
+  </p>
+  <div  *ngIf="!mobileView" class="products-featues-section">
+    <p class="activeto">FILTERS</p>
+    <div class="filterChips">
+      <mat-chip-row *ngFor="let chips of filteringChips">
+        {{ chips.displayValue }}
+        <button matChipRemove [attr.aria-label]="'remove '">
+          <mat-icon (click)="removeChip(chips)">clear</mat-icon>
+        </button>
+      </mat-chip-row>
+    </div>
+    <button
+      (mouseenter)="mousehover()"
+      (mouseleave)="mouseleave()"
+      mat-stroked-button
+    >
+     <span class="sortValues"><span class="label">sort by:</span>{{ selectOption }}</span
+      ><i class="bi bi-chevron-compact-down"></i>
+      <div *ngIf="showSelectOptions" class="sortOptions">
+        <p
+          *ngFor="let sortValue of sortingValues"
+          (click)="selectOptionsMethod(sortValue)"
+        >
+          {{ sortValue }}
+        </p>
+      </div>
+    </button>
+  </div>
+</div>

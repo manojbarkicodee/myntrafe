@@ -1,0 +1,102 @@
+.sizedialog {
+  width: 320px;
+  position: relative;
+
+  .bi,
+  .bi-x-lg {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+  }
+
+  .quantityChart {
+    margin-top: 10px;
+
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      color: black;
+      margin-left: 20px;
+    }
+
+    .quanties {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 40px;
+      gap: 15px;
+      margin-bottom: 20px;
+
+      div {
+        width: 42px;
+        height: 42px;
+        box-sizing: border-box;
+        padding: auto;
+        padding-top: 8px;
+        font-size: 14px;
+        font-weight: 500 !important;
+        border: 0.5px solid rgba(0, 0, 0, 0.925);
+        border-radius: 50%;
+        text-align: center;
+        color: black;
+
+        &:hover {
+          border-color: red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .quantityListBtn {
+    background-color: rgb(255, 63, 108);
+    width: 100%;
+    border: 0px !important;
+    padding-top: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    padding-bottom: 8px;
+    border-radius: 5px;
+  }
+}
+
+.onSelect {
+  color: red !important;
+  border-color: red !important;
+}
+
+@media screen and (max-width:500px) {
+  .sizedialog {
+      width: 100%;
+  
+      .bi,
+      .bi-x-lg {
+        top: 0px;
+        right: 0px;
+      }
+  
+      .quantityChart {
+  
+        p {
+          margin-left: 0px;
+        }
+  
+        .quanties {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+  
+          div {
+            padding: 15px;
+            padding-top: 8px;
+          }
+        }
+      }
+  
+  
+    }
+}
+  

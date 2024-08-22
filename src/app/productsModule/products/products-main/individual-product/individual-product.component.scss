@@ -1,0 +1,113 @@
+.container-product {
+  position: relative;
+}
+
+.navigate-to-wishlist {
+  position: absolute;
+  left: 0px;
+  top: 95%;
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  z-index: 5;
+  height: 13%;
+
+  button {
+    width: 90%;
+    border: 1px solid black;
+    margin: auto;
+    font-weight: 500;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.253);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    justify-content: center;
+
+    &:hover {
+      border: 0.5px solid black;
+    }
+
+    .bi-heart {
+      margin-right: 7px;
+      font-size: 17px;
+    }
+
+    .bi-heart-fill {
+      margin-right: 7px;
+      font-size: 17px;
+    }
+  }
+}
+
+.product-details {
+  padding: 10px;
+
+  p {
+    line-height: 10px;
+    font-size: 13px;
+
+    span {
+      margin-right: 5px;
+    }
+  }
+
+  .brand {
+    font-weight: 500;
+  }
+
+  .description {
+    color: rgba(0, 0, 0, 0.466);
+    width: 14vw;
+    line-height: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .current-price {
+    font-weight: 500;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.466);
+  }
+
+  .discount-label {
+    color: rgb(255, 172, 133);
+    line-height: 15px;
+  }
+}
+
+.activeWishlist {
+  color: white;
+  background-color: rgba(6, 3, 20, 0.753);
+  border: 0px !important;
+
+  &:hover {
+    border: 0px !important;
+  }
+
+  .bi {
+    color: rgb(255, 63, 108);
+  }
+}
+// @media screen and (min-width:1450px) {
+//   .navigate-to-wishlist {
+//     height: 12%;
+//     top: 74%;
+//   }
+// }
+.wrapperContainer{
+  position: relative;
+}
+@media screen and (max-width:500px) {
+  .product-details {
+    .description {
+      width: 40vw;
+    }
+  }
+}
+

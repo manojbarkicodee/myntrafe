@@ -1,0 +1,30 @@
+<ngb-carousel
+  [interval]="1000"
+  #carousel
+  [showNavigationIndicators]="productDetails?true:indicators"
+  [showNavigationArrows]="false"
+  [activeId]="'0'"
+  [pauseOnHover]="false"
+>
+  <ng-template
+    *ngFor="let image of images; let i = index"
+    [id]="i.toString()"
+    ngbSlide
+  >
+    <div class="picsum-img-wrapper">
+      <img
+        class="carousel-img"
+        [src]="image.imageUrl"
+        alt="Angular Carousel 1"
+      />
+    </div>
+    <div *ngIf="!indicators" class="carousel-caption">
+      <mat-chip>
+        {{ ratings.toFixed(1) }}
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon=""
+          >grade</mat-icon
+        >
+      </mat-chip>
+    </div>
+  </ng-template>
+</ngb-carousel>

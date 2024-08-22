@@ -1,0 +1,83 @@
+<div class="paymentContainer">
+  <div class="paymentOptions">
+    <div (click)="selectCardMethod(radioBtn)" class="cashOnDelivery">
+      <p>Select payment method</p>
+      <div class="header pointer">
+        <mat-radio-button #radioBtn value="cash on delivery"
+          ><span class="name">Cash On Delivery</span></mat-radio-button
+        >
+      </div>
+    </div>
+    <div class="selectCards">
+      <div class="header">
+        <p>Select card for payment</p>
+        <button (click)="openFormDialog()">ADD NEW CARD</button>
+      </div>
+      <div #scrollable class="cards">
+        <div
+          (click)="selectCardMethod(radioBtn)"
+          *ngFor="let Card of cards; let i = index"
+          class="EachCard"
+        >
+          <div class="header">
+            <mat-radio-button #radioBtn value="debitcard"
+              ><span class="name">{{
+                Card.name | firstlettercap
+              }}</span></mat-radio-button
+            >
+          </div>
+          <div class="otherDetails">
+            <p>
+              <span>CARD NUMBER:</span>{{ Card.cardnumber | maskingCardNumber }}
+            </p>
+            <p>
+              <span>EXPIRY DATE:</span>{{ Card.expirydate | formatingDate }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <button (click)="openFormDialog()" class="addNewCard redColor">
+        + Add New Card
+      </button>
+    </div>
+  </div>
+  <div *ngIf="pricingDetails" class="pricingDetails">
+    <div class="priceList">
+      <p class="header">PRICE DETAILS({{ selectedProductsCount }} item)</p>
+      <div class="priceInfo">
+        <p>Total MRP</p>
+        <p><i class="bi bi-currency-rupee"></i>{{ pricingDetails.totalMrp }}</p>
+      </div>
+      <div class="priceInfo">
+        <p>Discount on MRP</p>
+        <p class="greenColor">
+          -<i class="bi bi-currency-rupee"></i
+          >{{ pricingDetails.discountOnMrp }}
+        </p>
+      </div>
+      <div *ngIf="pricingDetails.couponDiscount" class="priceInfo">
+        <p>Coupon Discount</p>
+        <p class="greenColor">{{ -pricingDetails.couponDiscount }}</p>
+      </div>
+      <div class="priceInfo">
+        <p>Convenience Fee <span class="redColor">Know More</span></p>
+        <p>
+          <span class="price"><i class="bi bi-currency-rupee"></i>99</span
+          ><span class="greenColor">FREE</span>
+        </p>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="totalInfo">
+        <p>Total Amount</p>
+        <p>
+          <i class="bi bi-currency-rupee"></i>{{ pricingDetails.totalAmount }}
+        </p>
+      </div>
+      <div class="btnWrapper">
+        <button (click)="placeOrderMethod()" class="btnPlaceOrder">
+          PLACE ORDER
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

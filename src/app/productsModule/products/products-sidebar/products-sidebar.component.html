@@ -1,0 +1,79 @@
+<div *ngIf="!enableFilter;else MobileViewSidebar" class="product-sidebar-section" [ngClass]="toFixed ? 'tofixed' : ''">
+  <p *ngIf="brands.length > 0" class="activeto">BRAND</p>
+  <div *ngIf="brands.length > 0" class="brands-sidebar">
+    <mat-checkbox
+      #checkbox
+      [value]="brand.name"
+      [name]="'brand'"
+      (change)="onCheckedMethod($event)"
+      *ngFor="let brand of brands"
+      class="custom-checkbox"
+      >{{ brand.name }}</mat-checkbox
+    >
+  </div>
+  <p class="activeto">PRICE</p>
+  <div class="price-sidebar">
+    <mat-checkbox
+      #checkbox
+      [value]="price.value"
+      [name]="'price'"
+      (change)="onCheckedMethod($event)"
+      *ngFor="let price of pricelist"
+      class="custom-checkbox"
+      >{{ price.displayName }}</mat-checkbox
+    >
+  </div>
+
+  <p class="activeto">COLOR</p>
+  <div class="color-sidebar">
+    <mat-checkbox
+      #checkbox
+      [value]="color.primaryColour"
+      [name]="'color'"
+      (change)="onCheckedMethod($event, color)"
+      *ngFor="let color of colors"
+      class="custom-checkbox"
+      [checked]="color.checked"
+      ><span
+        class="colorIcon"
+        [ngStyle]="{
+          backgroundColor:
+            Validcolors(color.primaryColour) || color.primaryColour,
+          color: Validcolors(color.primaryColour) || color.primaryColour
+        }"
+        >....</span
+      >{{ color.primaryColour }}</mat-checkbox
+    >
+  </div>
+  <p class="activeto">DISCOUNT RANGE</p>
+  <div class="discount-sidebar">
+    <mat-checkbox
+      #checkbox
+      [value]="discount.value"
+      [name]="'discount'"
+      (change)="onCheckedMethod($event)"
+      *ngFor="let discount of discountlist"
+      class="custom-checkbox"
+      >{{ discount.displayName }}</mat-checkbox
+    >
+  </div>
+</div>
+
+<ng-template #MobileViewSidebar>
+<div class="FilterContainer">
+<div class="header"><p>FILTERS</p></div>
+<div class="mainContent">
+  <div class="filterOptions">
+<p *ngIf="this.brands.length>0"  (click)="showFilterOptions('brand')">Brand</p>
+<p (click)="showFilterOptions('price')">Price</p>
+<p (click)="showFilterOptions('color')">Color</p>
+<p (click)="showFilterOptions('discount')">Discount range</p>
+  </div>
+  <div class="FilterItems">
+<div [ngClass]="items.checked?'activeFilter':''" *ngFor="let items of filterItems;let i=index" (click)="toggleCheck(active,active==='brand'?items.name:active==='color'?items.primaryColour:items.value ,items.checked,i)" >
+  <i class="bi bi-check2"></i> <p>{{items.name?items.name:items.displayName?items.displayName:items.primaryColour?items.primaryColour:items.displayName}}</p>
+</div>
+  </div> 
+</div>
+</div>
+</ng-template>

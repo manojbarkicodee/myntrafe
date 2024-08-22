@@ -1,0 +1,33 @@
+<app-navtologin
+  *ngIf="!checkLogin"
+  [dynamicCompData]="dynamicCompData"
+></app-navtologin>
+
+<div *ngIf="checkLogin" class="wishlist-container">
+  <span class="countHeader">My Wishlist</span
+  ><span class="count"> {{ productCount }} items</span>
+  <div class="products">
+    <div
+      class="product"
+      (click)="navigateToProductDetails(product.id, product.category.title)"
+      *ngFor="let product of products"
+    >
+      <img [src]="product.productimage" alt="" />
+      <i
+        (click)="deleteProductMethod(product.id, $event)"
+        class="bi bi-x-circle-fill pointer"
+      ></i>
+      <div class="product-details">
+        <p class="description">{{ product.productName }}</p>
+        <p class="priceList">
+          <span class="current-price">RS.{{ product.price }}</span>
+          <span class="original-price">{{ product.mrp }}</span>
+          <span class="discount-label">{{ product.discountDisplayLabel }}</span>
+        </p>
+      </div>
+      <button (click)="openDialog($event, product.id)" class="btn-moveToBag">
+        MOVE TO BAG
+      </button>
+    </div>
+  </div>
+</div>

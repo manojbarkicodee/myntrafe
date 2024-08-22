@@ -1,0 +1,164 @@
+.product-sidebar-section {
+  width: 22vw;
+  border-right: 0.5px solid rgba(0, 0, 0, 0.11);
+  padding-top: 10px;
+  position: sticky;
+  height: fit-content;
+  min-width: fit-content;
+  padding-right: 10px;
+}
+
+.custom-checkbox {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.activeto {
+  font-size: 13px;
+  padding-left: 30px;
+  margin-bottom: 0px;
+}
+
+:host ::ng-deep mat-checkbox {
+  height: 25px;
+
+  .mdc-checkbox__background {
+    width: 15px;
+    height: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.26) !important;
+    left: 0px;
+  }
+}
+
+:host ::ng-deep .mdc-form-field {
+  label {
+    font-size: 13px;
+    width: 100%;
+    white-space: nowrap;
+  }
+}
+
+.brands-sidebar,
+.price-sidebar,
+.discount-sidebar,
+.color-sidebar {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.11);
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+:host ::ng-deep .mdc-checkbox__ripple {
+  display: none;
+}
+
+:host ::ng-deep .mat-mdc-checkbox-ripple {
+  display: none;
+}
+
+.colorIcon {
+  border-radius: 50%;
+  font-size: 12px;
+  margin-right: 10px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: 0.5px solid rgba(0, 0, 0, 0.26);
+}
+
+.tofixed {
+  position: sticky;
+  top: -460px;
+}
+
+:host ::ng-deep .mat-mdc-checkbox {
+  .mdc-checkbox {
+    .mdc-checkbox__native-control {
+      top: 10px;
+      height: 20px;
+    }
+
+    .mat-mdc-checkbox-touch-target {
+      height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width:1010px) {
+
+  .product-sidebar-section {
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width:500px) {
+  // .product-sidebar-section {
+  //   display: none;
+  // }
+
+  .activeFilter {
+    .bi-check2 {
+      color: #FF416F;
+    }
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  .FilterContainer {
+    height: 70vh;
+
+    .header {
+      font-weight: 500;
+      width: 100vw;
+      padding: 10px;
+      font-size: 13px;
+      border-bottom: 0.5px solid rgb(0 0 0 / 12%);
+
+      p {
+        margin: 0px;
+      }
+    }
+
+    .mainContent {
+      display: flex;
+      height: 100%;
+    }
+
+    .filterOptions {
+      width: 35%;
+      background: rgb(245, 245, 246);
+      height: 100%;
+
+      p {
+        margin: 0px;
+        font-size: 13px;
+        padding: 15px 10px;
+        border-bottom: 0.5px solid rgb(0 0 0 / 12%);
+        font-weight: 100;
+        font-size: 13px;
+      }
+    }
+
+    .FilterItems {
+      // border: 1px solid black;
+      width: 65%;
+      height: 100%;
+      padding: 0px 10px;
+      overflow-y: auto;
+
+      div {
+        padding: 10px 15px;
+        border-bottom: 0.5px solid rgb(0 0 0 / 12%);
+        display: flex;
+
+        p {
+          margin: 0px;
+          font-size: 11px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

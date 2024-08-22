@@ -1,0 +1,45 @@
+<div>
+  <section  class="banner">
+    <img
+      class="banner-img"
+      src="../../assets/homepageImages/homepage-banner-img.webp"
+      alt=""
+      srcset=""
+    />
+  </section>
+  <section routerLink="products/mens" class="crazy-deals">
+    <app-home-section
+      [title]="titleAtDeals"
+      [images]="imagesAtDeals"
+      [section]="section"
+    ></app-home-section>
+  </section>
+  <section routerLink="products/womens" class="most-loved-brands">
+    <app-home-section
+      [title]="titlebrands"
+      [images]="imagesbrands"
+      [section]="section"
+    ></app-home-section>
+  </section>
+  <section routerLink="products/kids" class="top-brands-at-best-prices">
+    <app-home-section
+      [title]="titleAtPrices"
+      [images]="imagesAtPrices"
+      [section]="section"
+    ></app-home-section>
+  </section>
+  <section routerLink="products/mens" class="trendy-picks">
+    <app-home-section
+      [title]="titleAtTrendyPicks"
+      [images]="imagesAtTrendyPicks"
+      [section]="section"
+    ></app-home-section>
+  </section>
+  <section routerLink="products/womens" class="shop_by_category">
+    <app-home-section
+      [title]="titleAtCategory"
+      [images]="imagesAtCategory"
+      [section]="true"
+    ></app-home-section>
+  </section>
+</div>

@@ -1,0 +1,37 @@
+<div class="card-Container">
+  <div class="header">
+    <p>Payment Information</p>
+    <i (click)="onNoClick()" class="bi bi-x-lg pointer"></i>
+  </div>
+
+  <div *ngIf="products" class="orderedProducts">
+    <div *ngFor="let product of products" class="productDetails">
+      <p class="productName">
+        {{ product.ordersItems.quantity }} X {{ product.productName }}
+      </p>
+      <p>₹{{ product.mrp * product.ordersItems.quantity }}.00</p>
+    </div>
+  </div>
+  <div class="pricingDetails">
+    <div>
+      <span class="label">MRP</span>
+      <span class="price"
+        >₹{{ data.mrp || data.totalPrice + data.discountedPrice }}.00</span
+      >
+    </div>
+    <div>
+      <span class="label">Discount</span>
+      <span class="price"
+        >-₹{{ data.discount || data.discountedPrice }}.00</span
+      >
+    </div>
+    <div>
+      <span class="label">Discounted Price</span>
+      <span class="price">₹{{ data.price || data.totalPrice }}.00</span>
+    </div>
+  </div>
+  <div class="fotter">
+    <p>Total Paid</p>
+    <p>₹{{ data.price || data.totalPrice }}.00</p>
+  </div>
+</div>

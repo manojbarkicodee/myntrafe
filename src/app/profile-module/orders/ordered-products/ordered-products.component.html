@@ -1,0 +1,55 @@
+
+<div class="orders">
+  <div *ngFor="let product of orderedProducts" class="orderedProducts">
+    <div
+      *ngIf="checkOrders && !product.ordersItems.cancel; else cancelHeader"
+      class="header"
+    >
+      <div class="packedIcon">
+        <i class="bi bi-box"></i>
+      </div>
+
+      <div>
+        <p class="orderStatus">{{ product.orderStatus?.status }}</p>
+        <p>{{ product.orderStatus?.description }}</p>
+      </div>
+    </div>
+    <ng-template #cancelHeader>
+      <div *ngIf="checkOrders" class="cancelHeader">
+        <div class="cancelPackedIcon">
+          <i class="bi bi-x cancelIcon"></i>
+        </div>
+
+        <div>
+          <p class="cancelOrderStatus">Cancelled</p>
+          <p>Since we were unable to deliver your order</p>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="productInfo">
+      <div
+        (click)="navToOrdersDetails(product.orderId, product.id)"
+        class="productDetails"
+      >
+        <img [src]="product.productimage" alt="" />
+        <div class="productDescription">
+          <p class="title">{{ product.description }}</p>
+          <p class="description">{{ product.productName }}</p>
+          <p class="size">Size:{{ product.ordersItems.size }}</p>
+          <p class="quantity">Quantity:{{ product.ordersItems.quantity }}</p>
+        </div>
+        <i class="bi bi-chevron-right"></i>
+      </div>
+      <button
+        (click)="openCancelOrderDialog($event, product.orderId, product.id)"
+        *ngIf="
+          product.orderStatus?.validToDeleteOrder && !product.ordersItems.cancel
+        "
+        class="orderCancelBtn"
+      >
+        CANCEL
+      </button>
+    </div>
+  </div>
+</div>

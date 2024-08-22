@@ -1,0 +1,22 @@
+<div class="dashboardContainer">
+  <div class="header">
+    <div class="profileImage">
+      <img src="../../../assets//profileDashboard/deafultUser.png" alt="" />
+      <span>{{emailId}}</span>
+    </div>
+    <button routerLink="/profile/edit">EDIT PROFILE</button>
+  </div>
+  <div class="dashboardElements">
+    <div
+      (click)="navigateToNextRoute(element.title)"
+      *ngFor="let element of dashboardElements"
+      class="element pointer"
+    >
+      <img [src]="element.imageUrl" alt="" />
+      <p class="title">{{ element.title }}</p>
+      <p class="description">{{ element.description }}</p>
+      <i class="bi bi-chevron-right" *ngIf="isMobileView"></i>
+    </div>
+  </div>
+  <button (click)="logoutMethod()" class="logoutBtn">LOGOUT</button>
+</div>

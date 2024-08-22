@@ -1,0 +1,260 @@
+.paymentContainer {
+  display: flex;
+  width: 70vw;
+  margin: auto;
+  gap: 15px;
+
+  .paymentOptions {
+    width: 60vw;
+
+    margin-right: 10px;
+    padding-top: 20px;
+
+    .cashOnDelivery {
+      p {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .header {
+        border: 0.5px solid rgba(0, 0, 0, 0.068);
+        border-radius: 5px;
+        padding-left: 13px;
+
+        &:hover {
+          border-color: rgba(0, 0, 0, 0.158);
+        }
+
+        span {
+          color: rgba(0, 0, 0, 0.712);
+        }
+      }
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      p {
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 10px;
+        font-weight: 500;
+        padding: 5px 12px 5px 12px;
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+    }
+
+    .cards {
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+    }
+
+    .addNewCard {
+      border: 0.5px dashed rgba(0, 0, 0, 0.486);
+      font-weight: 500;
+      text-align: left;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 100%;
+      background-color: white;
+    }
+  }
+
+  .pricingDetails {
+    padding-top: 20px;
+    width: 40vw;
+    border-left: 0.5px solid rgba(0, 0, 0, 0.192);
+    padding: 15px;
+
+    .header {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .priceList {
+      margin-top: 30px;
+
+      .header {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .priceInfo {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          font-size: 12px;
+        }
+
+        .price {
+          text-decoration: line-through;
+        }
+      }
+
+      .totalInfo {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        font-size: 14px !important;
+        margin-top: 10px;
+      }
+
+      .btnPlaceOrder {
+        width: 100%;
+        font-size: 12px;
+        border: 0px;
+        background-color: rgb(255, 63, 108);
+        color: white;
+        font-weight: 500;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.greenColor {
+  color: green !important;
+}
+
+.redColor {
+  color: rgb(255, 63, 108);
+}
+
+.EachCard {
+  border: 0.5px solid rgba(0, 0, 0, 0.096);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  .name {
+    font-weight: 500;
+  }
+
+  .otherDetails {
+    padding-left: 44px;
+
+    p {
+      font-size: 12px;
+      color: rgb(255, 64, 129);
+
+      span {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.411);
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 0.5px solid rgba(0, 0, 0, 0.164);
+  }
+
+  .header {
+    margin-bottom: 0px !important;
+  }
+}
+
+.toScroll {
+  height: 30vh !important;
+  overflow-y: scroll;
+}
+
+:host ::ng-deep .mat-mdc-radio-button {
+  .mat-radio-ripple {
+    display: none;
+  }
+
+  .mat-mdc-radio-ripple {
+    display: none;
+  }
+}
+
+:host ::ng-deep .mat-mdc-radio-touch-target {
+  height: 20px;
+  width: 20px;
+}
+
+:host ::ng-deep.mdc-radio__outer-circle {
+  border-width: 1px;
+}
+
+:host ::ng-deep .mdc-radio__background {
+  height: 18px;
+  width: 18px;
+}
+
+:host ::ng-deep .mdc-radio__inner-circle {
+  width: 80%;
+  height: 80%;
+  border-width: 9px;
+}
+
+:host ::ng-deep .cdk-mouse-focused {
+  background-color: aliceblue !important;
+  color: white !important;
+}
+
+:host ::ng-deep .mat-mdc-radio-button.mat-accent {
+  --mat-mdc-radio-checked-ripple-color: white;
+  --mat-mdc-radio-ripple-color: white;
+}
+
+@media screen and (max-width:1300px) {
+  .paymentContainer {
+    width: 80vw;
+
+  
+    .paymentOptions {
+      width: 50%;
+    }
+  }
+  .pricingDetails {
+  width: 50%;
+  }
+}
+
+@media screen and (max-width:900px){
+  .paymentContainer {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    background-color: white;
+    .paymentOptions {
+      width: 100%;
+    }
+    .pricingDetails {
+      width: 100%;
+      border-left: 0px;
+      .priceList{
+      
+        .btnWrapper{
+          padding: 10px;
+          background-color: white;
+          position: fixed;
+        bottom: 0px;
+        z-index: 120;
+        left: 0px;
+        
+        right: 0px;
+        width: 100%;
+        }
+      }
+    }
+  }
+}

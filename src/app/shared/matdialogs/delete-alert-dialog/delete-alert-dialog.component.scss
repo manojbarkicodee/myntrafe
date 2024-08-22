@@ -1,0 +1,76 @@
+.deleteAlertContainer {
+  width: 380px;
+
+  .alert {
+    display: flex;
+
+    img {
+      width: 50px;
+      object-fit: contain;
+    }
+    .bi,
+    .bi-x-lg {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      color: black;
+    }
+
+    .details {
+      margin-left: 10px;
+
+      .header {
+        font-size: 13px;
+        font-weight: 500;
+        margin: 0px;
+      }
+
+      .discription {
+        font-size: 13px;
+        font-weight: 100;
+        margin: 0px;
+        color: black !important;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+
+    .remove {
+      color: rgba(0, 0, 0, 0.568);
+      margin-right: 30px;
+    }
+
+    .wishlist {
+      color: rgb(255, 63, 108);
+      margin-left: 30px;
+    }
+  }
+}
+
+:host ::ng-deep .mat-divider.mat-divider-vertical {
+  border-color: rgba(0, 0, 0, 0.384);
+  height: 20px;
+}
+
+
+@media screen and (max-width:500px) {
+  .deleteAlertContainer {
+    width: 95vw;
+
+    .alert {
+      padding-left: 0px;
+    }
+  }
+
+  .mat-bottom-sheet-container {
+    border-radius: 5px 5px 0 0;
+  }
+
+}

@@ -1,0 +1,82 @@
+<div class="ordersDetailsContainer">
+  <div
+    (click)="navToProduct(product.id, product.category.title)"
+    *ngIf="product"
+    class="orderedProduct"
+  >
+    <img [src]="product.productimage" alt="" />
+    <p class="title">{{ product.description }}</p>
+    <p class="description">{{ product.productName }}</p>
+    <p class="size">Size: {{ product.ordersItems.size }}</p>
+    <p class="quantity">Quantity: {{ product.ordersItems.quantity }}</p>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div *ngIf="deliveryAddress" class="addressContainer">
+    <h2 class="header">Delivery Address</h2>
+    <div class="userDetails">
+      <span class="name">{{ deliveryAddress.name }}</span
+      ><span class="mobileNumber">{{ deliveryAddress.phoneNumber }}</span>
+    </div>
+    <div class="addressDetails">
+      <span class="address">{{ deliveryAddress.address }},</span
+      ><span class="locality"> {{ deliveryAddress.locality }},</span
+      ><span class="district"> {{ deliveryAddress.district }}-</span
+      ><span class="pincode"> {{ deliveryAddress.pincode }}.</span>
+    </div>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div *ngIf="product" class="orderDetails">
+    <div class="priceDetails">
+      <label>Total Item Price</label> <span>₹{{ product.price }}.00</span>
+    </div>
+    <div class="priceInfo">
+      <label
+        >You saved <span class="discount">₹{{ product.discount }}.00</span> on
+        this item</label
+      ><span
+        class="otherDetails pointer"
+        (click)="openShopingDetailsDialog($event, true)"
+        >View Breakup</span
+      >
+    </div>
+    <p class="paymentMethod">
+      <i class="bi bi-cash pointer"></i>
+      {{
+        orderDetails.paymentMethod === "debitcard"
+          ? "Paid by card"
+          : "Pay on delivery"
+      }}
+    </p>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div *ngIf="products" class="otherOrderedProducts">
+    <h2 *ngIf="products.length > 0">Other items in this order</h2>
+    <app-ordered-products
+      [checkOrders]="false"
+      [orderedProducts]="products"
+      *ngIf="products.length > 0"
+    ></app-ordered-products>
+    <div *ngIf="products" class="totalPriceDetails">
+      <div *ngIf="products.length > 0">
+        <div class="priceDetails">
+          <label>Total Item Price</label>
+          <span>₹{{ orderDetails.totalPrice }}.00</span>
+        </div>
+        <div class="priceInfo">
+          <label
+            >You saved
+            <span class="discount">₹{{ orderDetails.discountedPrice }}.00</span>
+            on this item</label
+          ><span
+            class="otherDetails pointer"
+            (click)="openShopingDetailsDialog($event, false)"
+            >View Breakup</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

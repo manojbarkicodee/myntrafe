@@ -1,0 +1,161 @@
+.product {
+    // border: 1px solid black;
+    display: flex;
+    position: relative;
+    border: 0.5px solid rgba(0, 0, 0, 0.137);
+    padding: 10px;
+
+    img {
+        // border: 1px solid black;
+        width: 120px;
+        object-fit: contain;
+    }
+
+    .custom-checkbox {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .product-details {
+
+        // line-height: 10px;
+        width: 100%;
+        position: relative;
+        margin-left: 10px;
+
+        .bi-x-lg {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .brand {
+            font-size: 13px;
+            font-weight: 500;
+            // border: 1px solid black;
+            margin: 7px;
+            margin-left: 0px;
+            // border:1px solid black;
+            width: 100%;
+
+        }
+
+        .desription {
+            font-size: 13px;
+            font-weight: 100;
+            color: black;
+            // border: 1px solid black;
+            margin: 0px;
+            width: 90%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .chooseMoreDetails {
+            display: flex;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            align-items: center;
+            padding: 0px;
+            margin: 7px;
+            margin-left: 0px;
+
+            p {
+                margin: 0px;
+
+                .bi {
+                    font-size: 8px;
+                }
+            }
+
+            // border: 1px solid black;
+        }
+
+        .priceList {
+            margin: 7px;
+            margin-left: 0px;
+
+            &>span {
+                margin-right: 10px;
+            }
+
+            .currentPrice {
+                font-weight: 500;
+                font-size: 13px;
+
+
+
+                .bi {
+                    &::before {
+                        font-weight: 700 !important;
+
+                    }
+
+                    font-size: 13px;
+
+                }
+            }
+
+            .originalPrice {
+                font-size: 13px;
+                color: rgba(0, 0, 0, 0.603);
+
+                span {
+                    text-decoration: line-through;
+
+                }
+
+
+            }
+
+            .discountLabel {
+                color: rgb(255, 144, 100);
+                font-size: 13px;
+                font-weight: 100;
+            }
+
+        }
+
+        .returnPolicy {
+            font-size: 10px;
+            font-weight: 100;
+            color: black;
+            margin-bottom: 2px;
+
+            span {
+                font-size: 11px;
+                font-weight: 500;
+            }
+        }
+        .deliveryDate{
+            font-size: 10px;
+            margin-bottom: 0px;
+            margin-left: -2px;
+            font-weight: 700;
+            .bi{
+                color: green;
+                font-size: 18px;
+                // margin-top:-100px;
+                // border: 1px solid black;
+                padding-bottom: 0px;
+                vertical-align: -4px;
+                margin-right: 5px;
+            }
+            span{
+                font-weight: 100;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width:900px) {
+    .product{
+        background-color: white;
+    }
+}

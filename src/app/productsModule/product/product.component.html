@@ -1,0 +1,163 @@
+<div *ngIf="product" class="product-details-container">
+  <div class="product-details">
+    <div class="product-images">
+      <div
+        *ngFor="let image of product?.Images"
+        
+      >
+    <img [src]="image.imageUrl" alt=""></div>
+    </div>
+  
+  <ngb-carousel *ngIf="isMobileView"
+  [interval]="1000"
+  #carousel
+  [showNavigationIndicators]="true"
+  [showNavigationArrows]="false"
+  [activeId]="'0'"
+  [pauseOnHover]="false"
+  (mouseenter)="mousehover()"
+    (mouseleave)="mouseleave()"
+>
+  <ng-template
+    *ngFor="let image of product?.Images; let i = index"
+    [id]="i.toString()"
+    ngbSlide
+  >
+    <div class="picsum-img-wrapper">
+      <img
+        class="carousel-img"
+        [src]="image.imageUrl"
+        alt="Angular Carousel 1"
+      />
+    </div>
+  </ng-template>
+</ngb-carousel>
+    <div class="details">
+      <div class="detailed-discription">
+        <h1>{{ product.brand.name }}</h1>
+        <p class="productName">{{ product.productName }}</p>
+        <mat-chip class="pointer">
+          {{ product.ratings.toFixed(1) }}
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon=""
+            >grade</mat-icon
+          >
+        </mat-chip>
+        <mat-divider></mat-divider>
+        <div class="priceList">
+          <span class="currentPrice"
+            ><i class="bi bi-currency-rupee"></i>{{ product.price }}</span
+          >
+          <span class="originalPrice"
+            >MRP <span>{{ product.mrp }}</span></span
+          >
+          <span class="discountLabel">{{ product.discountDisplayLabel }}</span>
+        </div>
+        <p class="tax-description-tag">inclusive of all taxes</p>
+
+        <div class="sizeChart">
+          <p>SELECT SIZE</p>
+          <p class="sizeAlert" *ngIf="showSizeAlert">Please select a size</p>
+          <div class="sizes">
+            <div
+              #sizeElement
+              (click)="selectSize(size.size, sizeElement)"
+              *ngFor="let size of product?.sizes"
+            >
+              {{ size.size }}
+            </div>
+          </div>
+        </div>
+
+        <div class="toAddProductFeature">
+          <button (click)="addProductsToBag(product.id)" class="addToBag">
+            <div *ngIf="!goToBag">
+              <i class="bi bi-handbag-fill"></i>
+            </div>
+            <span *ngIf="!goToBag">
+              <p class="commonPara">ADD TO BAG</p>
+              <p class="uniquePara">BUY WITH EARLY ACCESS</p>
+            </span>
+            <div class="toBagContainer">
+              <p class="toBagPara" *ngIf="goToBag">GO TO BAG</p>
+              <i *ngIf="goToBag" class="bi bi-arrow-right tobagicon"></i>
+            </div>
+          </button>
+          <button [ngClass]="product.wishlisted ? 'activeWishlist' : ''"
+            (click)="addProductToWishlist(product.id)"
+            class="addToWishlist"
+          >
+            <i [class]="product.wishlisted ?'bi bi-heart-fill':'bi bi-heart'"></i> WISHLIST
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+
+        <div class="deliveryOptions">
+          <div class="header">
+            <span>DELIVERY OPTIONS</span><i class="bi bi-truck"></i>
+          </div>
+
+          <div class="deliveryInfo">
+            <p class="info" *ngFor="let info of deliveryInfo">{{ info }}</p>
+          </div>
+
+          <div class="offersInfo">
+            <div class="header">
+              <span>BEST OFFERS</span> <i class="bi bi-tag"></i>
+            </div>
+            <ul class="offers">
+              <li class="offer" *ngFor="let offer of offersInfo">
+                {{ offer }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="termsAndConditions">
+            <div *ngFor="let term of otherDetails" class="terms">
+              <p class="header">{{ term.header }}</p>
+              <p class="offer">{{ term.offer }}</p>
+              <ul>
+                <li class="condition">{{ term.condition }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="product-description">
+          <div class="header">
+            <span>PRODUCT DETAILS</span> <i class="bi bi-card-text"></i>
+          </div>
+
+          <p class="description">
+            {{ product.productName }}, having the color of
+            {{ product.primaryColour }}, belongs to the brand
+            {{ product.brand.name }}.
+          </p>
+
+          <div class="header">
+            <span>Size & Fit</span>
+          </div>
+          <div class="size-fit">
+            <p>Slim fit</p>
+            <p>The model (height 6') is wearing a size 40</p>
+          </div>
+
+          <div class="header">
+            <span>Material & Care</span>
+          </div>
+          <div class="size-fit">
+            <p>100% cotton</p>
+            <p>Machine-wash</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <app-similar-products
+    [similarProducts]="similarProducts"
+    [category]="category"
+  ></app-similar-products>
+</div>
