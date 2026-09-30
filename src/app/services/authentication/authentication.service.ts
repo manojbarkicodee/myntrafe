@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Authmodel, Loginresponse } from '../../componets/models';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class AuthenticationService {
 
 
   authenticationMethod(signupdata: Authmodel, endpoint: string) {
-    return this.http.post<Loginresponse>(`http://localhost:8000${endpoint}`, signupdata)
+    return this.http.post<Loginresponse>(`${environment.apiUrl}${endpoint}`, signupdata)
   }
 
 

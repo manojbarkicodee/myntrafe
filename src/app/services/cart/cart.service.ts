@@ -13,8 +13,9 @@ import {
   selectedProducts,
   successResponse,
 } from 'src/app/cart-module/model';
+import { environment } from 'src/environments/environment';
 
-let url = 'http://localhost:8000';
+let url = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })

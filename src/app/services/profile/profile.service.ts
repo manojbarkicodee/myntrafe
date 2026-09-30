@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Subject, map } from 'rxjs';
 import { successResponse } from 'src/app/cart-module/model';
 import { orderDetails, profileDetails } from 'src/app/profile-module/model';
-let url = 'http://localhost:8000';
+import { environment } from 'src/environments/environment';
+let url = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })

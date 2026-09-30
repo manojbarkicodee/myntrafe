@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { wishlistproduct } from 'src/app/wishlist-module/model';
+import { environment } from 'src/environments/environment';
 
-let url = 'http://localhost:8000';
+let url = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })

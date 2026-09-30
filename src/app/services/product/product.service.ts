@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { productDetails, similarProducts } from 'src/app/productsModule/model';
-let url = 'http://localhost:8000';
+import { environment } from 'src/environments/environment';
+let url = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })
